@@ -51,4 +51,5 @@ A proposta deste trabalho é baseada nas necessidades dos alunos da UFC de:
   * Geral
   * Por comparativo no dia 
 * Bot de Telegram integrado notificando sobre eventos, pratos favoritos e pratos esgotados
+* Classificar a lotação da unidade do RU, baseada em quantas pessoas entraram pelo tempo de estadia média no R.U
 
