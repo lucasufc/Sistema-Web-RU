@@ -1,7 +1,10 @@
 # Sistema-Web-RU
-  O sistema tem como objetivo facilitar a vida de quem frequenta o Restaurante Universitário
- 
- 
+A proposta deste trabalho é baseada nas necessidades dos alunos da UFC de:
+* Relembrar os pratos do RU
+* Favoritar os pratos prediletos
+* Ser notificado quando for o dia dos seus pratos favoritos (Google Calendar)
+* Ficar informado sobre os eventos e possíveis problemas que possam ocorrer no RU
+* Saber qual fila tem o prato de sua escolha 
  
  ## Usuários
 
@@ -13,6 +16,7 @@
 * Atualizar o cárdapio
 * Cadastrar pessoas no sistema
 * Divulgar eventos e/ou problemas que possam ocorrer em certa unidade dos Restaurantes Universitários 
+* Relatórios sobre as avaliações dos pratos
 
 ---
 
@@ -24,5 +28,24 @@
 * Acessar o cárdapio
 * Dar nota para a refeição
 * Receber notificação de quando seu prato favorito estiver disponível
+* Comparativo das avaliações dos pratos do dia
+
+---
+
+![visitante](https://user-images.githubusercontent.com/32624827/140388926-f2290c62-ee6e-44be-9222-f364c28c295b.png)
+**Visitante**
+
+### Características
+
+* Acessar o cardápio
+
+---
+## Funcionalidades Opcionais
+
+* Os próprios alunos informam quando os pratos acabaram em cada RU para criar um senso de comunidade
 * Consultar créditos
 * Recarregar cartão
+* Visualização dos pratos mais favoritados
+  * Geral
+  * Por comparativo no dia 
+
