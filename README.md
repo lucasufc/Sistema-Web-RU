@@ -43,9 +43,12 @@ A proposta deste trabalho é baseada nas necessidades dos alunos da UFC de:
 ## Funcionalidades Opcionais
 
 * Os próprios alunos informam quando os pratos acabaram em cada RU para criar um senso de comunidade
+* Os próprios alunos informarem quando a fila estiver grande ou pequena
+* Relatórios sobre horários de pico de usuários para entender em que horário as filas provavelmente estarão grandes
 * Consultar créditos
 * Recarregar cartão
 * Visualização dos pratos mais favoritados
   * Geral
   * Por comparativo no dia 
+* Bot de Telegram integrado notificando sobre eventos, pratos favoritos e pratos esgotados
 
