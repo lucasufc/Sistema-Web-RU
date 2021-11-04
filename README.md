@@ -1,4 +1,4 @@
-# Sistema-Web-RU
+# Sistema Web RU
 A proposta deste trabalho é baseada nas necessidades dos alunos da UFC de:
 * Relembrar os pratos do RU
 * Favoritar os pratos prediletos
