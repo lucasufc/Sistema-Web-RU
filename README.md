@@ -24,4 +24,5 @@
 * Acessar o cárdapio
 * Dar nota para a refeição
 * Receber notificação de quando seu prato favorito estiver disponível
-
+* Consultar créditos
+* Recarregar cartão
