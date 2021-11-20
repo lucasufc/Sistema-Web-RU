@@ -5,20 +5,12 @@
 @import url('./header.css');
 @import url('./main.css');
 @import url('./footer.css');
-
+@import url('./root.css');
 /* General Settings */
 *{
     margin: 0px;
     padding: 0px;
 }
-:root {
-    --bg-body: #E5E5E5;
-
-    /* Buttons Styles*/
-    --btn-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
-    --btn-width: 112px;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
