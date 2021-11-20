@@ -48,36 +48,37 @@ function weekDay() {
 
 function menuGenerator(data, property) {
     const sectionMenu = document.querySelector('main > section.content')
-    let aux = menuTitle(property)
-    sectionMenu.appendChild(aux)
-    aux = menuItens(data, property)
-    sectionMenu.appendChild(aux)
-    
+    menuTitle(property, sectionMenu)
+    menuItens(data, property, sectionMenu)  
 }
 
-function menuTitle (string) {
+function menuTitle (string, sectionMenu) {
     let tag = document.createElement('h2')
     let text = `${string.charAt(0).toUpperCase()+ string.slice(1)}`
     text= text.replace('c', 'ç')
     tag.innerText = text
-    return tag
+    sectionMenu.appendChild(tag)
 }
-function menuItens (data, property) {
+function menuItens (data, property, sectionMenu) {
     let div = document.createElement('div')
     div.classList.add(property)
-    let tag
     for(category in data) {
-        data[category].forEach((value, index) => {
-            if(index == 1 ) {
-                tag = document.createElement('h3')
-                tag.innerText = String.fromCodePoint(data[category][0])
-                tag.innerText += `${value}`
-            } else {
-                tag = document.createElement('p')
-                tag.innerText = `${value}`
-            }
-            if(index > 0) div.appendChild(tag)
-        })
+        getFood(data[category],div)
     }
-    return div
+    sectionMenu.appendChild(div)
+}
+
+function getFood(data, div) {
+    let tag
+    data.forEach((value, index) => {
+        if(index == 1 ) {
+            tag = document.createElement('h3')
+            tag.innerText = String.fromCodePoint(data[0])
+            tag.innerText += `${value}`
+        } else {
+            tag = document.createElement('p')
+            tag.innerText = `${value}`
+        }
+        if(index > 0) div.appendChild(tag)
+    })
 }
