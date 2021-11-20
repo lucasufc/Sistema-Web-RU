@@ -1,0 +1,23 @@
+:root {
+    --main-border-radius: 0px 0px 30px 30px;
+    --main-box-shadow: 5px 5px 10px -1px hsla(0, 0%, 0%, 0.26);
+}
+
+main {
+    font-family: 'Mate SC', serif;
+    background-color: white;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 81px;
+    height: 80vh;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-box-shadow);
+    width: 80%;
+}
+
+section.content {
+    font-family: Arial, Helvetica, sans-serif;
+    align-self: flex-start;
+    padding-left: 15px;
+}
