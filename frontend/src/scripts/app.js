@@ -1,23 +1,24 @@
 const desjejum = {
-    bebidas: [ '&#x1F964 Bebidas', 'Café', 'Leite Quente / Frio (Contém Lactose)', 'Leite de Soja', 'Suco de Maracujá' ],
-    paes: [ '&#x1F35E Pães','Pão Carioca (Contém Glúten)' ,'Pão Sovado (Contém Glúten)' ],
-    frutas: ['&#x1F34E Frutas', 'Laranja', 'Melão Espanhol'],
-    especial: ['&#x1F31F Especial', 'Achocolatado (Contém Lactose), Bolo (Contém Lactose e Glúten)']
+    bebidas: [ '0x1F964','Bebidas', 'Café', 'Leite Quente / Frio (Contém Lactose)', 'Leite de Soja', 'Suco de Maracujá' ],
+    paes: [ '0x1F35E',' Pães','Pão Carioca (Contém Glúten)' ,'Pão Sovado (Contém Glúten)' ],
+    frutas: ['0x1F34E',' Frutas', 'Laranja', 'Melão Espanhol'],
+    especial: ['0x1F31F',' Especial', 'Achocolatado (Contém Lactose)', 'Bolo (Contém Lactose e Glúten)']
 }
 
 
 function main () {
-    const title = document.querySelector('h1.title')
-    title.innerText = weekDay()
-    const sectionMenu = document.querySelector('main > section.content')
-    let menu = '' 
-    menu += menuGenerator(desjejum, 'desjejum')
-    sectionMenu.innerHTML = menu
-
+    weekTitle()
+    menuGenerator(desjejum, 'desjejum')
+    menuGenerator(desjejum, 'desjejum')
+    menuGenerator(desjejum, 'desjejum')
 }
 
 main()
 
+function weekTitle () {
+    const title = document.querySelector('h1.title')
+    title.innerText = weekDay()
+}
 function weekDay() {
     const date = new Date()
     const day = date.toLocaleDateString('pt-br')
@@ -46,17 +47,35 @@ function weekDay() {
 }
 
 function menuGenerator(data, property) {
-    let content = `<div class="${property}">`
-    content += `<h2>${property.charAt(0).toUpperCase()+ property.slice(1)}</h2></br>`
+    const sectionMenu = document.querySelector('main > section.content')
+    let aux = menuTitle(property)
+    sectionMenu.appendChild(aux)
+    aux = menuItens(data, property)
+    sectionMenu.appendChild(aux)
+    
+}
+
+function menuTitle (string) {
+    let tag = document.createElement('h2')
+    tag.innerText = `${string.charAt(0).toUpperCase()+ string.slice(1)}`
+    return tag
+}
+function menuItens (data, property) {
+    let div = document.createElement('div')
+    div.classList.add(property)
+    let tag
     for(category in data) {
         data[category].forEach((value, index) => {
-            if(index == 0 ) {
-                content += `<h3>${value}<h2>`
+            if(index == 1 ) {
+                tag = document.createElement('h3')
+                tag.innerText = String.fromCodePoint(data[category][0])
+                tag.innerText += `${value}`
             } else {
-                content += `<p>${value}</p>`
+                tag = document.createElement('p')
+                tag.innerText = `${value}`
             }
+            if(index > 0) div.appendChild(tag)
         })
     }
-    content += '</div>'
-    return content
+    return div
 }
