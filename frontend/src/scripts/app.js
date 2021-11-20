@@ -9,8 +9,8 @@ const desjejum = {
 function main () {
     weekTitle()
     menuGenerator(desjejum, 'desjejum')
-    menuGenerator(desjejum, 'desjejum')
-    menuGenerator(desjejum, 'desjejum')
+    menuGenerator(desjejum, 'almoco')
+    menuGenerator(desjejum, 'jantar')
 }
 
 main()
@@ -57,7 +57,9 @@ function menuGenerator(data, property) {
 
 function menuTitle (string) {
     let tag = document.createElement('h2')
-    tag.innerText = `${string.charAt(0).toUpperCase()+ string.slice(1)}`
+    let text = `${string.charAt(0).toUpperCase()+ string.slice(1)}`
+    text= text.replace('c', 'ç')
+    tag.innerText = text
     return tag
 }
 function menuItens (data, property) {
