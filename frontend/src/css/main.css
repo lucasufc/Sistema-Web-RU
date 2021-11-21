@@ -1,21 +1,23 @@
+.fixer {
+    width: 100%;
+}
+
 main {
-    box-sizing: border-box;
+    box-sizing: content-box;
     font-family: 'Mate SC', serif;
     background-color: var(--bg-main) ;
-    padding: 10px 20px;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 41px;
-    min-height: 80vh;
-    border-radius: var(--main-border-radius);
-    box-shadow: var(--main-box-shadow);
-    width: 85%;
+    height: calc(100vh - var(--header-height));
+    width: 100%;
+    overflow-y: scroll;
 }
 
 section.content {
     font-family: Arial, Helvetica, sans-serif;
     align-self: flex-start;
     box-sizing: border-box;
+    display: block;
+    
+    padding: 15px 30px;
     width: 100%;
 }
 

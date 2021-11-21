@@ -1,0 +1,35 @@
+.card {
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 250px;
+    height: 150px;
+    background-color: whitesmoke;
+    transition: all 0.3s ease-out;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+   
+  .card p {
+    color: #a3a5ae;
+    font-size: 16px;
+  }
+ 
+  .mild {
+    border-left: 3px solid #006B3E;
+  }
+   
+  .moderate {
+    border-left: 3px solid #FFE733;
+  }
+   
+  .busy {
+    border-left: 3px solid #FF8C01;
+  }
+  .very-busy {
+    border-left: 3px solid #ED2938;
+  }

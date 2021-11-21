@@ -4,10 +4,14 @@ const desjejum = {
     frutas: ['0x1F34E',' Frutas', 'Laranja', 'Melão Espanhol'],
     especial: ['0x1F31F',' Especial', 'Achocolatado (Contém Lactose)', 'Bolo (Contém Lactose e Glúten)']
 }
-
+const restaurants =  {
+    velho: ['Velho', '200', '100'],
+    novo: ['Novo', '100', '90']
+}
 
 function main () {
     weekTitle()
+    RUCads()
     menuGenerator(desjejum, 'desjejum')
     menuGenerator(desjejum, 'almoco')
     menuGenerator(desjejum, 'jantar')
@@ -21,7 +25,7 @@ function toggle () {
 
 function weekTitle () {
     const title = document.querySelector('h1.title')
-    title.innerText = weekDay()
+    title.innerHTML = weekDay()
 }
 function weekDay() {
     const date = new Date()
@@ -47,7 +51,7 @@ function weekDay() {
             dayOfWeek = 'Final de Semana'
             break
     }
-    return `${dayOfWeek} ( ${day} )`
+    return `${dayOfWeek} </br><p>${day}</p>`
 }
 
 function menuGenerator(data, property) {
@@ -86,4 +90,42 @@ function getFood(data, div) {
         }
         if(index > 0) div.appendChild(tag)
     })
+}
+
+function RUCads () {
+    const cards = document.querySelector('main > section.cards')
+    for(unit in restaurants) {
+        getUnit(restaurants[unit], cards)
+    }
+}
+
+function getUnit( units, cards ) {
+    let card = document.createElement('div')
+    card.classList.add('card')
+
+    let unit = units[0]
+    let maxOcupation = Number(units[1])
+    let currentOcupation = Number(units[2])
+    card.classList.add(unit.toLowerCase())
+    let p = document.createElement('p')
+    p.innerText = unit
+    card.appendChild(p)
+    setCapacity(maxOcupation,currentOcupation, card)
+    cards.appendChild(card)
+
+}
+
+function setCapacity (max, current, card){
+    let capacity = (current / max)*100
+    console.log(capacity)
+    if(capacity < 25) {
+        card.classList.add('mild')
+    } else if(capacity < 50) {
+        card.classList.add('moderate')
+    } else if(capacity < 75) {
+        card.classList.add('busy')
+    } else {
+        card.classList.add('very-busy')
+    }
+ 
 }

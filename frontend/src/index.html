@@ -4,36 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RU Mine?</title>
+    <title>Sistema Web RU</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
-<body class="flex-column">
-    <header>
-        <nav class="nav-header flex-row">
-            <span class="nav-menu flex-row">
- 
-                <img src="./assets/img/logo.svg" alt="Logo Universidade Federal do Ceará">
-                <ul class="nav-ul flex-row">
-                    <li> <a href="./pages/#">Sistema Web RU</a></li>
+<body class="flex-row">
+    <aside class="menu flex-column">
+        <header class="aside-header">
+            <a href="./pages/#" id="logo">Sistema Web RU</a>
+        </header>
+        <nav class="nav-header flex-column">
+            <span class="nav-menu">
+                <ul class="nav-ul">
                     <li><a href="./pages/#">Início</a></li>
                     <li><a href="./pages/#">Sobre</a></li>
                     <li><a href="./pages/#">Quem Somos</a></li>
                 </ul>
-                <button class="btn" onclick="toggle()">Dark</button>
+                <span class="flex-row">
+                    <button class="btn btn-login">Login</button>
+                    <button class="btn btn-signUp">Cadastre-se</button>
+                </span>
             </span>
-            <span class="flex-row">
-                <button class="btn btn-login">Login</button>
-                <button class="btn btn-signUp">Cadastre-se</button>
-            </span>
+            <footer id="aside-footer">
+                <button class="btn toggle" onclick="toggle()">Dark</button>
+            </footer>
         </nav>
-    </header>
-    <main class="flex-column">
-        <h1 class="title"></h1>
-        <section class="content"></section>
-    </main>
-    <footer>
-        <p>Desenvolvido para a disciplina de Desenvolvimento de Aplicações Web - 2021.2</p>
-    </footer>
+    </aside id="main-footer">
+        <div class="fixer">
+            <header>
+                <h1 class="title"></h1>
+            </header>
+            <main class="flex-column">
+                <section class="cards flex-row"></section>
+                <section class="content"></section>
+                <footer id="main-footer">
+                    <p>Desenvolvido para a disciplina de Desenvolvimento de Aplicações Web - 2021.2</p>
+                </footer>
+            </main>
+        </div>
+
     <script src="./scripts/app.js" ></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>
 </html>

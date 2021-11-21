@@ -2,9 +2,12 @@
     /* Body Styles*/
         --bg-body: #E5E5E5;
         --body-color: #1a1a1a;
-    
+        --side-shadow: 14px 0px 17px -17px rgba(0,0,0,0.44);
+
     /* Header Styles */
-        --bg-header: #103750;
+        --header-height: 100px;
+        --bg-header: #A6121F;
+        --header-color: #E5E5E5;
         --bg-li-hover: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
         --header-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
 
