@@ -5,7 +5,7 @@
 @import url('./header.css');
 @import url('./main.css');
 @import url('./footer.css');
-@import url('./root.css');
+@import url('./variables.css');
 /* General Settings */
 *{
     margin: 0px;
@@ -14,6 +14,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
+    color: var(--body-color);
     align-items: center;
     background-color: var(--bg-body);
     min-height: 100vh;
@@ -34,11 +35,11 @@ body {
     margin-bottom: 5px;
     margin-top: 5px;
     min-width: var(--btn-width);
-
+    background-color: var(--bg-btn);
     border: none;
     border-radius: 10px;
     box-shadow: var(--btn-shadow);
-    color: whitesmoke;
+    color: var(--btn-color);
     font-family: 'Mate SC', serif;
     font-size: 18px;
 }

@@ -15,6 +15,10 @@ function main () {
 
 main()
 
+function toggle () {
+    document.body.classList.toggle('dark')
+}
+
 function weekTitle () {
     const title = document.querySelector('h1.title')
     title.innerText = weekDay()
@@ -59,11 +63,12 @@ function menuTitle (string, sectionMenu) {
     tag.innerText = text
     sectionMenu.appendChild(tag)
 }
+
 function menuItens (data, property, sectionMenu) {
     let div = document.createElement('div')
     div.classList.add(property)
     for(category in data) {
-        getFood(data[category],div)
+        getFood(data[category], div)
     }
     sectionMenu.appendChild(div)
 }
