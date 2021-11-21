@@ -107,25 +107,41 @@ function getUnit( units, cards ) {
     let maxOcupation = Number(units[1])
     let currentOcupation = Number(units[2])
     card.classList.add(unit.toLowerCase())
-    let p = document.createElement('p')
-    p.innerText = unit
-    card.appendChild(p)
-    setCapacity(maxOcupation,currentOcupation, card)
+    let h2 = document.createElement('h2')
+    h2.innerText = unit
+    card.appendChild(h2)
+    setCapacity(maxOcupation, currentOcupation, card)
     cards.appendChild(card)
 
 }
 
 function setCapacity (max, current, card){
-    let capacity = (current / max)*100
-    console.log(capacity)
+    let capacity = ((current / max)*100).toFixed(2)
+    let h3 = document.createElement('h3')
+    let icon = document.createElement('i')
+    let span = document.createElement('span')
+    span.classList.add('capacity')
+    icon.classList.add('fas')
+    
     if(capacity < 25) {
         card.classList.add('mild')
+        h3.innerText = 'Vazio'
+        icon.classList.add('fa-grin-stars')
     } else if(capacity < 50) {
         card.classList.add('moderate')
+        h3.innerText = 'Moderado'
+        icon.classList.add('fa-meh')
     } else if(capacity < 75) {
         card.classList.add('busy')
+        h3.innerText = 'Cheio'
+        icon.classList.add('fa-meh-rolling-eyes')
     } else {
         card.classList.add('very-busy')
+        h3.innerText = 'Lotado'
+        icon.classList.add('fa-sad-cry')
     }
+    span.appendChild(h3)
+    span.appendChild(icon)
+    card.appendChild(span)
  
 }

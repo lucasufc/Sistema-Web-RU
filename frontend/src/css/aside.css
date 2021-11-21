@@ -55,4 +55,8 @@ aside a {
 .wrapper {
     display: flex;
     height: 100%;
-  }
+}
+
+.buttons {
+    justify-self: center;
+}

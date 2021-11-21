@@ -1,22 +1,26 @@
 .card {
     border-radius: 5px;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    padding: 30px;
     margin: 20px;
-    width: 250px;
-    height: 150px;
+    width: 350px;
+    height: 250px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     background-color: whitesmoke;
     transition: all 0.3s ease-out;
   }
-
+  
   .card:hover {
     transform: translateY(-5px);
     cursor: pointer;
   }
-   
-  .card p {
-    color: #a3a5ae;
-    font-size: 16px;
+  
+  .card h2 {
+    padding: 30px;
+    color: white;
+    font-size: 2em;
   }
  
   .mild {
@@ -32,4 +36,24 @@
   }
   .very-busy {
     border-left: 3px solid #ED2938;
+  }
+
+  .velho {
+      background-image: url('../assets/img/velho.jpg');
+      
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+  .capacity{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-size: 3.0em;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+  i {
+    position: relative;
   }
