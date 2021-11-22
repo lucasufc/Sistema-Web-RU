@@ -5,10 +5,10 @@ const desjejum = {
     especial: ['0x1F31F',' Especial', 'Achocolatado (Contém Lactose)', 'Bolo (Contém Lactose e Glúten)']
 }
 const restaurants =  {
-    benfica: ['Benfica', '100','15'],
-    velho: ['Velho', '100', '45'],
-    porangabucu: ['Porangabuçu', '100', '60'],
-    novo: ['Novo', '100', '90']
+    benfica: ['Pici I', '100','15'],
+    velho: ['Pici II', '100', '45'],
+    porangabucu: ['Benfica', '100', '60'],
+    novo: ['Porangabuçu', '100', '90']
 }
 
 function main () {
@@ -115,7 +115,7 @@ function getUnit( units, cards ) {
     let unit = units[0]
     let maxOcupation = Number(units[1])
     let currentOcupation = Number(units[2])
-    card.classList.add(unit.toLowerCase())
+    card.classList.add(unit.replace(' ', '').toLowerCase())
     let h2 = document.createElement('h2')
     h2.innerText = unit
     card.appendChild(h2)
