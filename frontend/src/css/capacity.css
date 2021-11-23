@@ -1,0 +1,18 @@
+.mild {
+    --color-card: #00bb6d;
+    border-left: 3px solid var(--color-card);
+}
+
+.moderate {
+    --color-card: #FFE733;
+    border-left: 3px solid var(--color-card);
+}
+
+.busy {
+    --color-card: #FF8C01;
+    border-left: 3px solid var(--color-card);
+}
+.very-busy {
+    --color-card: #ED2938;
+    border-left: 3px solid var(--color-card);
+}

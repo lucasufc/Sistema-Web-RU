@@ -1,0 +1,42 @@
+.menu{
+    align-self: flex-start;
+    justify-self: flex-start;
+    background-color: var(--menu-bg);
+    min-width: 310px;
+    box-shadow: var(--side-shadow);
+    z-index: 10;
+}
+.menu header {
+    background-color: var(--menu-bg);
+    font-size: 2em;
+}
+.menu > header  a{
+    color: var(--menu-a);
+}
+.menu > nav {
+    min-height: calc(100vh - var(--header-height));
+    justify-content: space-between;
+}
+.menu ul {
+    list-style: none;
+    height: 100%;
+}
+.menu li {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    height: 100%;
+}
+
+.menu li:hover {
+    background: var(--bg-li-hover);
+}
+
+.menu span {
+    align-self: center;
+    justify-self: center;
+}
+
+.menu footer {
+    background-color: var(--bg-header);
+}

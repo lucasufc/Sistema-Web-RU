@@ -5,10 +5,10 @@ const desjejum = {
     especial: ['0x1F31F',' Especial', 'Achocolatado (Contém Lactose)', 'Bolo (Contém Lactose e Glúten)']
 }
 const restaurants =  {
-    benfica: ['Pici I', '100','15'],
-    velho: ['Pici II', '100', '45'],
-    porangabucu: ['Benfica', '100', '60'],
-    novo: ['Porangabuçu', '100', '90']
+    pici1: ['Pici I', '100','15'],
+    pici2: ['Pici II', '100', '45'],
+    benfica: ['Benfica', '100', '60'],
+    porangabucu: ['Porangabucu', '100', '90']
 }
 
 function main () {
@@ -84,6 +84,7 @@ function menuItens (data, property, sectionMenu) {
 function getFood(data, div) {
     let menuCard = document.createElement('div')
     menuCard.classList.add('card')
+
     let tag
     data.forEach((value, index) => {
         if(index == 1 ) {
@@ -101,17 +102,25 @@ function getFood(data, div) {
     div.appendChild(menuCard)
 }
 
+// Cartões RU
+
 function RUCads () {
     const cards = document.querySelector('main > section.cards')
+    cards.classList.add('flex-column')
+    let title = document.createElement('h2')
+    title.innerText = 'Unidades'
+    let exteralDiv = document.createElement('div')
+    exteralDiv.classList.add('flex-row')
+    cards.appendChild(title)
+    cards.appendChild(exteralDiv)
     for(unit in restaurants) {
-        getUnit(restaurants[unit], cards)
+        getUnit(restaurants[unit], exteralDiv)
     }
 }
 
 function getUnit( units, cards ) {
     let card = document.createElement('div')
     card.classList.add('card')
-
     let unit = units[0]
     let maxOcupation = Number(units[1])
     let currentOcupation = Number(units[2])

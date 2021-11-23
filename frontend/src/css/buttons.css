@@ -1,0 +1,28 @@
+.btn {
+    padding: 10px 15px;
+    margin-left: 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    min-width: var(--btn-width);
+    background-color: var(--bg-btn);
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--btn-shadow);
+    color: var(--btn-color);
+    font-family: 'Mate SC', serif;
+    font-size: 18px;
+}
+
+.btn-login {
+    background-color: var(--bg-btn-login);
+}
+.btn-login:hover {
+    background-color: var(--bg-btn-login-hover);
+}
+
+.btn-signUp {
+    background-color: var(--bg-btn-signUp);
+}
+.btn-signUp:hover {
+    background-color: var(--bg-btn-signUp-hover);
+}
