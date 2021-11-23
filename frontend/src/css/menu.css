@@ -1,10 +1,12 @@
 .menu{
     align-self: flex-start;
     justify-self: flex-start;
+    box-sizing: border-box;
     background-color: var(--menu-bg);
     min-width: 310px;
     box-shadow: var(--side-shadow);
     z-index: 10;
+    padding-bottom: 20px;
 }
 .menu header {
     background-color: var(--menu-bg);

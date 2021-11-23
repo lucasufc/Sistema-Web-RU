@@ -21,10 +21,6 @@ function main () {
 
 main()
 
-function toggle () {
-    document.body.classList.toggle('dark')
-}
-
 function weekTitle () {
     const title = document.querySelector('h1.title')
     title.innerHTML = weekDay()
@@ -160,5 +156,10 @@ function setCapacity (max, current, card){
     span.appendChild(h3)
     span.appendChild(emoji)
     card.appendChild(span)
- 
+}
+
+const toggler = document.getElementById('toggler')
+toggler.onclick = function(){
+    toggler.classList.toggle('active')
+    document.body.classList.toggle('dark')
 }
