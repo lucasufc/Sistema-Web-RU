@@ -7,11 +7,8 @@ header {
     width: 100%;
     font-size: 1.1em;
     padding: 0px;
-    overflow: hidden;  /* code added to prevent scroll */  
-    display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 header  p {

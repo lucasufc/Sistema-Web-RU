@@ -6,13 +6,11 @@ main {
     width: 100%;
     overflow-y: scroll;
     white-space: nowrap;
+    color: var(--main-color);
 }
 
 main h2 {
     font-family: var(--title-font);
-}
-.card-itens {
-    overflow-x: scroll;
 }
 section.content {
     box-sizing: border-box;
@@ -27,5 +25,4 @@ section.content {
     box-sizing: border-box;
     color: var(--content-color);
     padding: 15px;
-    background: var(--bg-content-div);
 }

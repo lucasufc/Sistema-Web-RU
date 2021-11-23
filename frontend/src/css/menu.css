@@ -3,12 +3,13 @@
     justify-self: flex-start;
     box-sizing: border-box;
     background-color: var(--menu-bg);
-    min-width: 310px;
     box-shadow: var(--side-shadow);
+    min-width: 310px;
     z-index: 10;
-    padding-bottom: 20px;
+    border-right: var(--menu-border);
 }
 .menu header {
+    display: flex;
     background-color: var(--menu-bg);
     font-size: 2em;
 }
@@ -38,7 +39,8 @@
     align-self: center;
     justify-self: center;
 }
-
-.menu footer {
-    background-color: var(--bg-header);
+.menu div {
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 15px;
 }
