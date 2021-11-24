@@ -1,0 +1,161 @@
+body {
+    color: #3c3c3c;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 60px -50px 60px;
+}
+
+.page-title h1 {
+    width: 500px;
+}
+
+.container {
+    display: flex;
+    margin: 70px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-color: #EBEBEB;
+}
+
+.profile #profile-image {
+    width: 200px;
+    border-radius: 100%;
+}
+
+.profile span {
+    width: 200px;
+    font-size: 23px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.profile > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.profile-info .info-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profile-info .info-section > span {
+    margin: 0 30px;
+    margin-bottom: 10px;
+}
+
+.profile-info .info-section .info-column {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+
+hr {
+    width: 99.8%;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-color: #EBEBEB;
+    border-left: none;
+    border-top: none;
+    border-right-style: solid;
+    border-width: 2px;
+}
+
+.evaluation {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    width: 135px;
+}
+
+.evaluation .star-image {
+    width: 20px;
+}
+
+.info-section .section-title {
+    color: #b9b4b4;
+}
+
+.info-section .field {
+    color: #737373;
+}
+
+.onoff {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    margin-left: 10px;
+}
+
+.onoff input {
+    display: none;
+}
+
+.onoff input.toggle + label {
+    display: inline-block;
+    position: relative;
+    box-shadow: inset 0 0 0px 1px #d5d5d5;
+    height: 30px;
+    width: 50px;
+    border-radius: 15px;
+}
+
+.onoff input.toggle + label:before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 30px;
+    border-radius:15px;
+    background: rgba(19, 191, 17, 0);
+    transition: 0.1s ease-in-out;
+}
+
+.onoff input.toggle + label:after {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 0;
+    left: 0px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.1s ease-in-out;
+}
+
+.onoff input.toggle:checked + label:before {
+    width: 50px;
+    background: #13bf11;
+}
+
+.onoff input.toggle:checked + label:after {
+    left: 20px;
+    box-shadow: inset 0 0 0 1px #13bf11, 0 2px 4px rgba(0, 0, 0, 0.2);
+}
