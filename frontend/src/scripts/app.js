@@ -53,7 +53,7 @@ function weekDay() {
 }
 
 function menuGenerator(data, property) {
-    const sectionMenu = document.querySelector('main > section.content')
+    const sectionMenu = document.querySelector('main > section.food-menu')
     menuTitle(property, sectionMenu)
     menuItens(data, property, sectionMenu)  
 }
@@ -78,20 +78,35 @@ function menuItens (data, property, sectionMenu) {
 }
 
 function getFood(data, div) {
+    let path = './assets/img/'
     let menuCard = document.createElement('div')
-    menuCard.classList.add('card')
-
+    menuCard.classList.add('ru-item')
+    menuCard.classList.add('flex-column')
+    let parentheses
     let tag
+
     data.forEach((value, index) => {
         if(index == 1 ) {
             tag = document.createElement('span')
-            tag.classList.add('category-title')
-            tag.innerHTML = String.fromCodePoint(data[0])
-            tag.innerHTML += `${value} <hr />`
+            tag.classList.add('food-title')
+            tag.classList.add('flex-row')
+
+            tag.innerHTML += `<h2>${value}</h2>`
+            tag.innerHTML += String.fromCodePoint(data[0])
+            //tag.innerHTML = `<img src="${path}${value}.png"></img>`
             
         } else {
-            tag = document.createElement('p')
-            tag.innerText = `${value}`
+            parentheses = value.indexOf('(')
+            tag = document.createElement('span')
+            tag.classList.add('food')
+            tag.classList.add('flex-column')
+            if(parentheses > 0) {
+                tag.innerHTML += `<h3>${value.slice(0, parentheses)}</h3>`
+                tag.innerHTML += `<p>${value.slice(parentheses)}</p>`
+            } else {
+                tag.innerHTML += `<h3>${value}</h3>`
+                tag.innerHTML += `<p></p>`
+            }
         }
         if(index > 0) menuCard.appendChild(tag)
     })

@@ -1,7 +1,16 @@
+@font-face {
+    font-family: 'ClearSans-Bold';
+    src: url('../assets/fonts/ClearSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'ClearSans-Regular';
+    src: url('../assets/fonts/ClearSans-Regular.ttf');
+}
 :root {
     /* Fonts */
         --title-font: 'Raleway', sans-serif;
-        --text-font: 'Open Sans', sans-serif;
+        --card-title: 'ClearSans-Bold', sans-serif;
+        --text-font: 'ClearSans-Regular', sans-serif;
     /* Body Styles*/
         --bg-body: #E5E5E5;
         --body-color: #1a1a1a;
@@ -38,6 +47,12 @@
     /* Cards */
         --color-card: white;
         --default-card: white;
+    /*Food Cards */
+        --food-color: #545454;
+        --ru-item-border:#a6a6a6;
+        --bg-ru-item: #ffffff;
+        --ru-item-bb: #555555;
+        --bg-ru-food: #ececec;
 }
 
 .dark {
@@ -77,4 +92,10 @@
     /* Cards */
      --color-card: #ff0;
      --default-card: #0f0f0f;
+    /*Food Cards */
+    --food-color: #ff0;
+    --ru-item-border: #ff0;
+    --bg-ru-item: #0f0f0f;
+    --ru-item-bb: #666;
+    --bg-ru-food: #151515;
 }
