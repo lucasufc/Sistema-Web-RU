@@ -27,8 +27,8 @@ body {
     height: 100vh;
     transition: 0.5s;
 }
-a{
-    font-family: 'Raleway', sans-serif;
+a {
+    font-family: inherit;
     text-decoration: none;
     color: var(--a-color);
 }
