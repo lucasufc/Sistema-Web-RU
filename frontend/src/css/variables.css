@@ -28,6 +28,7 @@
         --bg-li-hover: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
         --header-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
     /* Menu */
+        --color-logo: #919191;
         --menu-bg: #fff;
         --menu-a: #f5f5f5;
         --menu-border:none;
@@ -49,6 +50,8 @@
         /* Cards */
         --color-card: white;
         --default-card: white;
+        --color-card--h2: white;
+        --text-shadow: 2px 2px 10px #000;
         /*Food Cards */
         --food-color: #545454;
         --ru-item-border:#a6a6a6;
@@ -78,6 +81,7 @@
      --menu-bg: #050505;
      --menu-a: #ff0;
      --menu-border: 3px solid white;
+     --color-logo: #f5f5f5;
     /* Buttons Styles */
      --bg-btn: #000000;
      --btn-color: #fff;
@@ -96,6 +100,8 @@
     /* Cards */
      --color-card: #ff0;
      --default-card: #0f0f0f;
+     --color-card--h2: #ff0;
+     --text-shadow: 2px 2px 5px #000;
     /*Food Cards */
     --food-color: #ff0;
     --ru-item-border: #e6e601;
@@ -103,6 +109,6 @@
     --ru-item-bb: #666;
     --bg-ru-food: #0f0f0f;
     --bg-capacity: #0f0f0f;
-    --bg-progress-bar: #fff;
+    --bg-progress-bar: #f1f1f1;
     --progress-color: #ff0;
 }

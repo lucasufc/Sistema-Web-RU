@@ -69,3 +69,6 @@
     align-self: center;
     margin-bottom: 15px;
 }
+#logo {
+    color: var(--color-logo);
+}
