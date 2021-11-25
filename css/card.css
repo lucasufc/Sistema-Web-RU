@@ -45,7 +45,7 @@
 }
 
 .category-title{
-  font-style: none;
+  font-style: var(--title-font);
   font-size: 1.5em;
   font-weight: 300;
   margin-bottom: 10px;

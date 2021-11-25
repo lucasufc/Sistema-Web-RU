@@ -22,7 +22,6 @@
     font-size: 3.0em;
     width: calc( var(--card-width) / 3 );
     height: calc( var(--card-height) / 2);
-    background-color: none;
     align-self: flex-end;
     position: inherit; 
     border: none;
@@ -34,7 +33,6 @@
     position: relative;
     height: calc(var(--card-height) / 3);
     width: calc(var(--card-height) / 3);
-    background-color: none;
     border-radius: 50%;
     display: grid;
     place-items: center;
