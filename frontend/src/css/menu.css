@@ -72,3 +72,14 @@
 #logo {
     color: var(--color-logo);
 }
+.sign-up {
+    color: var(--sign-up-color);
+}
+.sign-up a {
+    color: var(--sign-up-a-color);
+    font-weight: bold;
+    cursor: pointer;
+}
+.sign-up a:hover {
+    color: var(--sign-up-a-hover);
+}
