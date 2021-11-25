@@ -27,7 +27,7 @@ body {
     background-color: var(--bg-body);
     overflow: hidden;
     height: 100vh;
-    transition: 0.5s;
+    
 }
 a {
     font-family: inherit;
