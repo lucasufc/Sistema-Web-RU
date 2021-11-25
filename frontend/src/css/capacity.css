@@ -1,5 +1,5 @@
 .mild {
-    --color-card: #00bb6d;
+    --color-card: #00BB6D;
     border-left: 3px solid var(--color-card);
 }
 
@@ -15,4 +15,46 @@
 .very-busy {
     --color-card: #ED2938;
     border-left: 3px solid var(--color-card);
+}
+
+.capacity{
+    font-weight: 100;
+    font-size: 3.0em;
+    width: calc( var(--card-width) / 3 );
+    height: calc( var(--card-height) / 2);
+    background-color: none;
+    align-self: flex-end;
+    position: inherit; 
+    border: none;
+    box-shadow: var(--main-box-shadow);
+    display: grid;
+    place-items: center;
+}
+.circular-progress {
+    position: relative;
+    height: calc(var(--card-height) / 3);
+    width: calc(var(--card-height) / 3);
+    background-color: none;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.value-container {
+    position: relative;
+    font-family: var(--text-font);
+    font-size: 0.75em;
+    color: #231c3d;
+}
+.value-container > span {
+    font-size: 0.25em;
 }

@@ -7,6 +7,9 @@
     src: url('../assets/fonts/ClearSans-Regular.ttf');
 }
 :root {
+    /* Sizes */
+        --card-width: 350px;
+        --card-height: 250px;
     /* Fonts */
         --title-font: 'Raleway', sans-serif;
         --card-title: 'ClearSans-Bold', sans-serif;
@@ -41,7 +44,6 @@
         --main-color: #000;
         --bg-main: #eeeeee;
         --main-border-radius: 0px 0px 30px 30px;
-        --main-box-shadow: 5px 5px 10px -1px hsla(0, 0%, 0%, 0.26);
         --content-color: #000000;
         --bg-content-div: #f5f5f5;
     /* Cards */
@@ -86,7 +88,6 @@
      --main-color: #ff0;
      --bg-main: #000;
      --main-border-radius: 0px 0px 30px 30px;
-     --main-box-shadow: 5px 5px 10px -1px hsla(0, 0%, 0%, 0.26);
      --content-color: #ff0;
      --bg-content-div: #121212;
     /* Cards */

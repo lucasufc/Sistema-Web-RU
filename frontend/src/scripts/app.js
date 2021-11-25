@@ -8,7 +8,7 @@ const restaurants =  {
     pici1: ['Pici I', '100','15'],
     pici2: ['Pici II', '100', '45'],
     benfica: ['Benfica', '100', '60'],
-    porangabucu: ['Porangabucu', '100', '90']
+    porangabucu: ['Porangabuçu', '100', '90']
 }
 
 function main () {
@@ -112,7 +112,6 @@ function getFood(data, div) {
     })
     div.appendChild(menuCard)
 }
-
 // Cartões RU
 
 function RUCads () {
@@ -135,46 +134,71 @@ function getUnit( units, cards ) {
     let unit = units[0]
     let maxOcupation = Number(units[1])
     let currentOcupation = Number(units[2])
-    card.classList.add(unit.replace(' ', '').toLowerCase())
+    card.classList.add(unit.replace(' ', '').replace('ç','c').toLowerCase())
     let h2 = document.createElement('h2')
     h2.innerText = unit
-    card.appendChild(h2)
     setCapacity(maxOcupation, currentOcupation, card)
+    card.appendChild(h2)
     cards.appendChild(card)
 
 }
 
 function setCapacity (max, current, card){
-    let capacity = ((current / max)*100).toFixed(2)
+    let capacity = ((current / max)*100).toFixed(0)
     let h3 = document.createElement('h3')
-    let span = document.createElement('span')
-    let emoji = document.createElement('p')
-    span.classList.add('capacity')
-    
+    let div = document.createElement('div')
+    let circular = document.createElement('div')
+    let circularValue = document.createElement('div')
+    div.classList.add('capacity')
+    circularValue.classList.add('value-container')
+
+    div.appendChild(circular)
     if(capacity < 25) {
         card.classList.add('mild')
-        h3.innerText = 'Vazio'
-        emoji.innerHTML = '&#x1F929;'
     } else if(capacity < 50) {
         card.classList.add('moderate')
-        h3.innerText = 'Moderado'
-        emoji.innerHTML = '&#x1F914;'
     } else if(capacity < 75) {
         card.classList.add('busy')
-        h3.innerText = 'Cheio'
-        emoji.innerHTML = '&#x1F614;'
     } else {
         card.classList.add('very-busy')
-        h3.innerText = 'Lotado'
-        emoji.innerHTML = '&#x1F62D;'
     }
-    span.appendChild(h3)
-    span.appendChild(emoji)
-    card.appendChild(span)
+    circularValue.innerText = '0%'
+    circular.appendChild(circularValue)
+    circular.classList.add('circular-progress')
+    div.appendChild(circular)
+    card.appendChild(div)
+    generateProgressBar(circular, circularValue, capacity)
 }
 
-const toggler = document.getElementById('toggler')
 toggler.onclick = function(){
+    const toggler = document.getElementById('toggler')
     toggler.classList.toggle('active')
     document.body.classList.toggle('dark')
+}
+
+function generateProgressBar(circular, circularValue, progressEndValue) {
+    let progressValue = 0
+    let speed = 60
+    let color = ''
+    let progress = setInterval(() => {
+        progressValue++
+        circularValue.innerHTML = `${progressValue}<span>%</span>`
+        if(progressValue < 25) {
+            color = `#00BB6D`
+        } else if(progressValue < 50) {
+            color = `#FFE733`
+        } else if(progressValue < 75) {
+            color = `#FF8C01`
+        } else {
+            color = `#ED2938`
+        }
+        circular.style.background = `conic-gradient(
+            ${color} ${progressValue * 3.6}deg,
+            #dfdfdf ${progressValue * 3.6}deg
+        )`
+        if(progressValue == progressEndValue) {
+            clearInterval(progress)
+        }
+    }, speed)
+
 }
