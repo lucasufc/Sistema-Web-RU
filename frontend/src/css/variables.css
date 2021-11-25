@@ -46,15 +46,18 @@
         --main-border-radius: 0px 0px 30px 30px;
         --content-color: #000000;
         --bg-content-div: #f5f5f5;
-    /* Cards */
+        /* Cards */
         --color-card: white;
         --default-card: white;
-    /*Food Cards */
+        /*Food Cards */
         --food-color: #545454;
         --ru-item-border:#a6a6a6;
         --bg-ru-item: #ffffff;
         --ru-item-bb: #555555;
         --bg-ru-food: #ececec;
+        --bg-capacity: #fff;
+        --bg-progress-bar: #dfdfdf;
+        --progress-color: #231c3d;
 }
 
 .dark {
@@ -68,7 +71,7 @@
      --header-height: 100px;
      --header-bg: #000 ;
      --header-color: #ff0;
-     --header-p-color: #6C757D;
+     --header-p-color: #ececec;
      --bg-li-hover: #f00;
      --header-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
     /* Menu */
@@ -95,8 +98,11 @@
      --default-card: #0f0f0f;
     /*Food Cards */
     --food-color: #ff0;
-    --ru-item-border: #ff0;
-    --bg-ru-item: #0f0f0f;
+    --ru-item-border: #e6e601;
+    --bg-ru-item: #030303;
     --ru-item-bb: #666;
-    --bg-ru-food: #151515;
+    --bg-ru-food: #0f0f0f;
+    --bg-capacity: #0f0f0f;
+    --bg-progress-bar: #fff;
+    --progress-color: #f5f5f5;
 }

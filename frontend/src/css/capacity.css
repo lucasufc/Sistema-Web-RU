@@ -45,16 +45,23 @@
     position: absolute;
     height: 80%;
     width: 80%;
-    background-color: #fff;
+    background-color: var(--bg-capacity);
     border-radius: 50%;
 }
 
 .value-container {
     position: relative;
     font-family: var(--text-font);
-    font-size: 0.75em;
-    color: #231c3d;
+    font-size: 0.60em;
+    color: var(--progress-color);
 }
 .value-container > span {
-    font-size: 0.25em;
+    font-size: 0.55em;
+}
+
+.value-container > p:hover {
+    font-size: 0.75em;
+}
+.value-container > span:hover {
+    font-size: 0.45em;
 }

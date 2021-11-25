@@ -178,7 +178,7 @@ toggler.onclick = function(){
 
 function generateProgressBar(circular, circularValue, progressEndValue) {
     let progressValue = 0
-    let speed = 60
+    let speed = 30
     let color = ''
     let progress = setInterval(() => {
         progressValue++
@@ -194,7 +194,7 @@ function generateProgressBar(circular, circularValue, progressEndValue) {
         }
         circular.style.background = `conic-gradient(
             ${color} ${progressValue * 3.6}deg,
-            #dfdfdf ${progressValue * 3.6}deg
+            var(--bg-progress-bar) ${progressValue * 3.6}deg
         )`
         if(progressValue == progressEndValue) {
             clearInterval(progress)
