@@ -51,7 +51,7 @@
 			| 
 			<a href="#">Esqueceu a senha?</a>
 			<br><br>
-			<a href="index.html">Voltar para o início</a>
+			<a href="../index.html">Voltar para o início</a>
 		</div>
 	</div>
 
@@ -61,15 +61,12 @@
 		var formBtn = document.getElementById('formulario').elements;
 		var link = document.getElementById('linkSite');
 				
-		/*formBtn['btnEnter'].onclick = function ()*/
 		document.getElementById('btn').onclick = function ()
 		{ 
 			matr = formBtn['matriculaUFC'].value;
 			if (matr == 'user')
 			{
 				alert('Entrou!');
-				/*link.href = 'dashboardUSER.html';*/
-				/*link.href = '../pages/user/index.html';*/
 				link.href = '../pages/user/index.html';
 
 				matr = '';
@@ -79,7 +76,6 @@
 			else if (matr == 'admin')
 			{
 				alert('Entrou!');
-				/*link.href = 'dashboardADMIN.html';*/
 				link.href = 'dashboardADMIN.html';
 				matr = '';
 			}	
