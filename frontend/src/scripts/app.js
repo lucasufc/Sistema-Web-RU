@@ -10,6 +10,7 @@ const restaurants =  {
     benfica: ['Benfica', '100', '60'],
     porangabucu: ['Porangabuçu', '100', '90']
 }
+main()
 
 function main () {
     weekTitle()
@@ -18,9 +19,6 @@ function main () {
     menuGenerator(desjejum, 'almoco')
     menuGenerator(desjejum, 'jantar')
 }
-
-main()
-
 function weekTitle () {
     const title = document.querySelector('h1.title')
     title.innerHTML = weekDay()
@@ -51,13 +49,11 @@ function weekDay() {
     }
     return `${dayOfWeek} </br><p>${day}</p>`
 }
-
 function menuGenerator(data, property) {
     const sectionMenu = document.querySelector('main > section.food-menu')
     menuTitle(property, sectionMenu)
     menuItens(data, property, sectionMenu)  
 }
-
 function menuTitle (string, sectionMenu) {
     let tag = document.createElement('h2')
     let text = `${string.charAt(0).toUpperCase()+ string.slice(1)}`
@@ -65,7 +61,6 @@ function menuTitle (string, sectionMenu) {
     tag.innerText = text
     sectionMenu.appendChild(tag)
 }
-
 function menuItens (data, property, sectionMenu) {
     let div = document.createElement('div')
     div.classList.add('card-itens')
@@ -76,7 +71,6 @@ function menuItens (data, property, sectionMenu) {
     }
     sectionMenu.appendChild(div)
 }
-
 function getFood(data, div) {
     let path = './assets/img/'
     let menuCard = document.createElement('div')
@@ -113,7 +107,6 @@ function getFood(data, div) {
     div.appendChild(menuCard)
 }
 // Cartões RU
-
 function RUCads () {
     const cards = document.querySelector('main > section.cards')
     cards.classList.add('flex-column')
@@ -127,7 +120,6 @@ function RUCads () {
         getUnit(restaurants[unit], exteralDiv)
     }
 }
-
 function getUnit( units, cards ) {
     let card = document.createElement('div')
     card.classList.add('card')
@@ -142,7 +134,6 @@ function getUnit( units, cards ) {
     cards.appendChild(card)
 
 }
-
 function setCapacity (max, current, card){
     let capacity = ((current / max)*100).toFixed(0)
     let h3 = document.createElement('h3')
@@ -169,13 +160,11 @@ function setCapacity (max, current, card){
     card.appendChild(div)
     generateProgressBar(circular, circularValue, capacity)
 }
-
 toggler.onclick = function(){
     const toggler = document.getElementById('toggler')
     toggler.classList.toggle('active')
     document.body.classList.toggle('dark')
 }
-
 function generateProgressBar(circular, circularValue, progressEndValue) {
     let progressValue = 0
     let speed = 30
