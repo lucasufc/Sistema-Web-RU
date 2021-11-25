@@ -58,10 +58,3 @@
 .value-container > span {
     font-size: 0.55em;
 }
-
-.value-container > p:hover {
-    font-size: 0.75em;
-}
-.value-container > span:hover {
-    font-size: 0.45em;
-}
