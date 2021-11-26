@@ -27,7 +27,11 @@ body {
     background-color: var(--bg-body);
     overflow: hidden;
     height: 100vh;
-    
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 a {
     font-family: inherit;
@@ -43,6 +47,6 @@ a {
     flex-direction: column;
 }
 .wrapper {
-    height: 100%;
-    width: 100%;
+    grid-area: 2 / 4 / 3 / 13;
+
 }

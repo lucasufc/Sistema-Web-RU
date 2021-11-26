@@ -9,6 +9,7 @@ header {
     padding: 0px;
     align-items: center;
     justify-content: center;
+    grid-area: 1 / 4 / 2 / 13;
 }
 
 header  p {

@@ -2,7 +2,7 @@
 main {
     box-sizing: content-box;
     background-color: var(--bg-main) ;
-    height: calc(100vh - var(--header-height));
+    height: 100%;
     width: 100%;
     overflow-y: scroll;
     white-space: nowrap;

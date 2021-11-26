@@ -17,6 +17,12 @@
     padding: 20px;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
     margin-bottom: 15px;
+    transition: all 0.3s ease-out;
+}
+
+.ru-item:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
 }
 .food-title {
     font-family: var(--card-title);
