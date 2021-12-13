@@ -1,0 +1,24 @@
+.benfica {
+    background-image: url('../assets/img/benfica-blur.jpg');
+}
+.benfica:hover {
+    background-image: url('../assets/img/benfica.jpg');
+}
+.porangabucu {
+    background-image: url('../assets/img/porangabucu-blur.jpg');
+}
+.porangabucu:hover {
+    background-image: url('../assets/img/porangabucu.jpg');
+}
+.picii {
+    background-image: url('../assets/img/picii-blur.jpg');
+}
+.picii:hover {
+    background-image: url('../assets/img/picii.jpg');
+}
+.piciii {
+    background-image: url('../assets/img/piciii-blur.jpg');
+}
+.piciii:hover {
+    background-image: url('../assets/img/piciii.jpg');
+}

@@ -1,0 +1,58 @@
+@import url('./capacity.css');
+@import url('./units.css');
+.card {
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  margin: 10px;
+  min-width: var(--card-width);
+  max-height: var(--card-width);
+  box-sizing: border-box;
+  display: flex;
+  font-weight: 300;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: var(--text-font);
+  background-color: var(--default-card);
+  transition: all 0.3s ease-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.card h2 {
+  font-family: var(--title-font);
+  text-shadow: var(--text-shadow);
+  padding: 30px;
+  color: var(--color-card--h2);
+  font-size: 2.4em;
+}
+.card h3 {
+  
+  text-shadow: 2px 2px 15px hsla(0, 0%, 0%, 0.459);
+  color: var(--color-card);
+}
+
+.cards {
+  flex-wrap: wrap;
+}
+.card-itens {
+  flex-wrap: wrap;
+}
+.card-itens > div {
+  padding: 15px;
+  justify-content: flex-start;
+}
+
+.category-title{
+  font-style: var(--title-font);
+  font-size: 1.5em;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.ru {
+  
+  padding: 15px;
+}
+
+

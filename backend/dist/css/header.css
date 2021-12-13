@@ -1,0 +1,19 @@
+header {
+    background-color: var(--header-bg);
+    height: var(--header-height);
+    color: var(--header-color);
+    font-family: var(--title-font);
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.1em;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+header  p {
+    font-family: var(--text-font);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--header-p-color);
+}

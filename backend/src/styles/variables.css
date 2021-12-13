@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'ClearSans-Bold';
+    src: url('../assets/fonts/ClearSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'ClearSans-Regular';
+    src: url('../assets/fonts/ClearSans-Regular.ttf');
+}
+:root {
+    /* Sizes */
+        --card-width: 350px;
+        --card-height: 250px;
+    /* Fonts */
+        --title-font: 'Raleway', sans-serif;
+        --card-title: 'ClearSans-Bold', sans-serif;
+        --text-font: 'ClearSans-Regular', sans-serif;
+    /* Body Styles*/
+        --bg-body: transparent;
+        --body-color: #1a1a1a;
+        --side-shadow: 14px 0px 17px -17px rgba(0,0,0,0.44);
+        --a-color: #f5f5f5;
+
+    /* Header Styles */
+        --header-height: 100px;
+        --header-bg: #ffffff;
+        --header-color: #000000;
+        --header-p-color: #6C757D;
+        --bg-li-hover: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+        --header-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
+    /* Menu */
+        --color-logo: #919191;
+        --menu-bg: #fff;
+        --menu-a: #f5f5f5;
+        --menu-border:none;
+        --sign-up-color:#787878;
+        --sign-up-a-color: #796BD7;
+        --sign-up-a-hover: #A79AFD;
+    /* Buttons Styles */
+        --bg-btn: #000000;
+        --btn-color: #fff;
+        --btn-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
+        --btn-width: 112px;
+        --bg-btn-login: #4E937A;
+        --bg-btn-login-hover: #77dfb9;
+        --bg-btn-signUp: #527067;
+        --bg-btn-signUp-hover: #94c4b5;
+    /* Main Styles*/
+        --main-color: #000;
+        --bg-main: #eeeeee;
+        --main-border-radius: 0px 0px 30px 30px;
+        --content-color: #000000;
+        --bg-content-div: #f5f5f5;
+        /* Cards */
+        --color-card: white;
+        --default-card: white;
+        --color-card--h2: white;
+        --text-shadow: 2px 2px 10px #000;
+        /*Food Cards */
+        --food-color: #545454;
+        --ru-item-border:#a6a6a6;
+        --bg-ru-item: #ffffff;
+        --ru-item-bb: #555555;
+        --bg-ru-food: #ececec;
+        --bg-capacity: #fff;
+        --bg-progress-bar: #dfdfdf;
+        --progress-color: #231c3d;
+}
+
+.dark {
+     /* Body Styles*/
+     --bg-body: #000;
+     --body-color: #1a1a1a;
+     --side-shadow: 14px 0px 17px -17px rgba(0,0,0,0.44);
+     --a-color: #ff0;
+
+    /* Header Styles */
+     --header-height: 100px;
+     --header-bg: #000 ;
+     --header-color: #ff0;
+     --header-p-color: #ececec;
+     --bg-li-hover: #f00;
+     --header-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
+    /* Menu */
+     --menu-bg: #050505;
+     --menu-a: #ff0;
+     --menu-border: 3px solid white;
+     --color-logo: #f5f5f5;
+     --sign-up-color:#f5f5f5;
+     --sign-up-a-color: #ff0;
+     --sign-up-a-hover: #fdfd8b;
+    /* Buttons Styles */
+     --bg-btn: #000000;
+     --btn-color: #fff;
+     --btn-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
+     --btn-width: 112px;
+     --bg-btn-login: #4E937A;
+     --bg-btn-login-hover: #77dfb9;
+     --bg-btn-signUp: #527067;
+     --bg-btn-signUp-hover: #94c4b5;
+    /* Main Styles*/
+     --main-color: #ff0;
+     --bg-main: #000;
+     --main-border-radius: 0px 0px 30px 30px;
+     --content-color: #ff0;
+     --bg-content-div: #121212;
+    /* Cards */
+     --color-card: #ff0;
+     --default-card: #0f0f0f;
+     --color-card--h2: #ff0;
+     --text-shadow: 2px 2px 5px #000;
+    /*Food Cards */
+    --food-color: #ff0;
+    --ru-item-border: #e6e601;
+    --bg-ru-item: #030303;
+    --ru-item-bb: #666;
+    --bg-ru-food: #0f0f0f;
+    --bg-capacity: #0f0f0f;
+    --bg-progress-bar: #f1f1f1;
+    --progress-color: #ff0;
+}

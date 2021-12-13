@@ -1,0 +1,28 @@
+
+main {
+    box-sizing: content-box;
+    background-color: var(--bg-main) ;
+    height: calc(100vh - var(--header-height));
+    width: 100%;
+    overflow-y: scroll;
+    white-space: nowrap;
+    color: var(--main-color);
+}
+
+main h2 {
+    font-family: var(--title-font);
+}
+section.content {
+    box-sizing: border-box;
+    padding: 15px;
+    width: 100%;
+}
+.content  p{
+    font-style: italic;
+}
+
+.content > div {
+    box-sizing: border-box;
+    color: var(--content-color);
+    padding: 15px;
+}
