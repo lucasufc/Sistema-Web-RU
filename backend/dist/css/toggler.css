@@ -1,0 +1,41 @@
+
+#toggler {
+    width: 90px;
+    height: 45px;
+    position: relative;
+    border-radius: 45px;
+    background-color: rgb(231, 231, 231);
+    
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: inset 0 8px 15px rgba(0,0,0,0.1),
+                inset 0 4px 4px rgba(0,0,0,0.1),
+                inset 0 -4px 4px rgba(0,0,0,0.1);
+}
+#toggler .indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 12;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transform: scale(0.9);
+    background:linear-gradient(to bottom, var(--menu-bg), whitesmoke);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25),
+                inset 0 4px 4px rgba(255, 255, 255, 0.5)
+                inset 0 -4px 4px rgba(255, 255, 255, 0.5);
+    transition: 0.5s;
+}
+
+#toggler.active .indicator {
+    left: 45px;
+    background: linear-gradient(to bottom, #444, #222);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5),
+                inset 0 4px 4px rgba(255, 255, 255, 0.2)
+                inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+}
+
+#toggler.active {
+    background-color: #222;
+}

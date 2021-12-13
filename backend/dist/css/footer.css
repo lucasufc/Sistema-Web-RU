@@ -1,0 +1,14 @@
+:root {
+    --bg-footer: #000000;
+    --footer-color: #f5f5f5;
+}
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0px;
+    background-color: var(--bg-footer);
+    color: var(--footer-color);
+    font-size: 15px;
+}
