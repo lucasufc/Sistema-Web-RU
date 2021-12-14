@@ -45,9 +45,7 @@ function cardFoods(meal, place) {
         aux.classList.add('food', 'flex-column')
         parentheses = meal[i].indexOf('(')
         if(meal[i][0] == '0') {
-            let title = [meal[i], meal[i+1]]
-            console.log(title)
-            place.appendChild(cardTitle(title))
+            place.appendChild(cardTitle([meal[i], meal[i+1]]))
             i = i + 2
         }
         if(parentheses > 0) {

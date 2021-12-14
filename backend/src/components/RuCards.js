@@ -5,7 +5,7 @@ import Restaurants from "../db/restaurants"
 
 export default function RuCards () {
     const ruCards = document.createElement('section')
-    ruCards.setAttribute('class','ru-cards flex-row')
+    ruCards.classList.add('ru-cards','flex-row', 'area')
     ruCards.append(Title('Unidades'))
     ruCards.append(Units())
     return ruCards

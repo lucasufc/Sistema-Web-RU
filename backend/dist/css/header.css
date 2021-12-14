@@ -9,9 +9,10 @@ header {
     padding: 0px;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
-header  p {
+header  span {
     font-family: var(--text-font);
     font-style: italic;
     font-weight: 300;

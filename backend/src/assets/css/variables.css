@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'ClearSans-Bold';
-    src: url('../assets/fonts/ClearSans-Regular.ttf');
+    src: url('../fonts/ClearSans-Regular.ttf');
 }
 @font-face {
     font-family: 'ClearSans-Regular';
-    src: url('../assets/fonts/ClearSans-Regular.ttf');
+    src: url('../fonts/ClearSans-Regular.ttf');
 }
 :root {
     /* Sizes */
