@@ -15,7 +15,7 @@ function Units() {
     const restaurants = Restaurants()
     const units = Div('')
     for(let unit in restaurants){
-        //units.append(createUnit(unit))
+        units.append(createUnit(unit))
         capacityClass(units,unit)
        // units.append(capacityIndicator(unit))
     }
