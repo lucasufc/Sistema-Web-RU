@@ -3,7 +3,6 @@ body
 	background-color: #103750;
 	font-family: times new roman;
 }
-
 .container 
 {
 	background-color: white;
@@ -47,11 +46,23 @@ body
 	{width: 100%;}
 }*/
 
-@media (min-width: 400px) and (max-width: 800px)
+.flex-container{
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	height: 100%;
+}
+
+@media (min-width: 300px) and (max-width: 900px)
 {
 	.container
 	{
 
+		background-color: white;
+		margin: 5vw auto 5vw auto;
+   		/*padding: 150px;*/
+    	padding: 0px 15px 25px 15px;
+    	border-radius: 10px;
 		width: 75%;
 	}
 }
