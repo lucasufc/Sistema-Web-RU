@@ -7,14 +7,42 @@
 	
 	<title>Cadastro - Sistema Web RU</title>
 
-	<link rel='stylesheet' type='text/css' media='screen' href='../css/loginCadastro.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
 	<script src='main.js'></script>
 	
 </head>
 
 <body>
 	<!-- CADASTRO NO SISTEMA -->
-	<div class="container">
+    <div class="wrapper-form">
+        <div class="container-form">
+            <h2>Cadastro</h2>
+            <form class="cl-form" action="">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome">
+                <label for="email">E-mail</label>
+                <input type="text" name="email" placeholder="aluno@aluno.com">
+                <label for="matricula">Matrícula</label>
+                <input type="number" name="matricula" placeholder="xxxxxx">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha">
+                <span class="form-buttons"> 
+                    <button>Confirmar</button>
+                    <button>Cancelar</button>
+                </span>
+            </form>
+        </div>
+
+    </div>
+	
+
+
+</body>
+</html>
+<!--
+
+
+    <div class="container">
 		<form id="formulario">
 			<h2 style="text-align: center;"> 
 				Cadastro no Sistema
@@ -55,7 +83,7 @@
 		<div id="btn">
 			<br>
 			<a href="#" id="linkSite" >
-				<button type="button" name="btnEnter" value="entrar" class="buttonSubmit">
+				<button type="button" name="btnEnter" value="entrar" class="buttonSubmit buttons">
 					Cadastrar
 				</button>
 			</a>
@@ -66,7 +94,4 @@
 			<a href="../index.html">Voltar para o início</a>
 		</div>
 	</div>
-
-
-</body>
-</html>
+-->

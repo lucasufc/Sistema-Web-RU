@@ -1,5 +1,5 @@
-@import url('./capacity.css');
-@import url('./units.css');
+@import url("./capacity.css");
+@import url("./units.css");
 .card {
   border-radius: 5px;
   box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
@@ -28,12 +28,12 @@
   font-size: 2.4em;
 }
 .card h3 {
-  
   text-shadow: 2px 2px 15px hsla(0, 0%, 0%, 0.459);
   color: var(--color-card);
 }
 
 .cards {
+  display: flex;
   flex-wrap: wrap;
 }
 .card-itens {
@@ -44,15 +44,12 @@
   justify-content: flex-start;
 }
 
-.category-title{
+.category-title {
   font-style: var(--title-font);
   font-size: 1.5em;
   font-weight: 300;
   margin-bottom: 10px;
 }
 .ru {
-  
   padding: 15px;
 }
-
-

@@ -14,10 +14,12 @@
 @import url('./main.css');
 @import url('./footer.css');
 @import url('./variables.css');
+@import url('./loginCadastro.css');
 /* General Settings */
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
