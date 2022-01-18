@@ -10,5 +10,5 @@ footer {
     padding: 15px 0px;
     background-color: var(--bg-footer);
     color: var(--footer-color);
-    font-size: 15px;
+    font-size: var(--fs-text);
 }

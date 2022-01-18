@@ -5,10 +5,11 @@ header {
     font-family: var(--title-font);
     box-sizing: border-box;
     width: 100%;
-    font-size: 1.1em;
+    font-size: var(--fs-input);
     padding: 0px;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 header  p {

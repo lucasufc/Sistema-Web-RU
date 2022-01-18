@@ -31,7 +31,7 @@
     margin-bottom: 10px;
     border: none;
     padding: 5px 10px;
-    font-size: 1.1rem;
+    font-size: var(--fs-input);
 }
 
 .form-buttons {
@@ -39,18 +39,25 @@
     margin-top: 5px;
 }
 
-.form-buttons button {
+.form-buttons button, .form-buttons a {
     border: none;
+    font-size: var(--fs-button);
     padding: 10px;
+    background-color: var(--bg-btn);
+    color: var(--btn-color);
+    cursor: pointer;
 }
 .logo {
-    font-size: 45px;
+    font-size: var(--fs-logo);
     color: var(--color-logo);
     justify-self: flex-start;
     font-family: var(--title-font);
     margin-bottom: 20px;
 }
-
+#form-confirma {
+    background-color: var( --sign-up-a-color);
+    color: white;
+}
 /*@media only screen and (max-width: 800px) 
 {
 	.container

@@ -40,7 +40,7 @@ body {
 
 .profile span {
     width: 200px;
-    font-size: 23px;
+    font-size: var(--fs-text);
     margin-top: 20px;
     font-weight: bold;
 }

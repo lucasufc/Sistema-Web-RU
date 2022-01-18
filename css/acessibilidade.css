@@ -1,0 +1,9 @@
+.acessibilidade{
+    position: absolute;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+}
