@@ -160,11 +160,6 @@ function setCapacity (max, current, card){
     card.appendChild(div)
     generateProgressBar(circular, circularValue, capacity)
 }
-toggler.onclick = function(){
-    const toggler = document.getElementById('toggler')
-    toggler.classList.toggle('active')
-    document.body.classList.toggle('dark')
-}
 function generateProgressBar(circular, circularValue, progressEndValue) {
     let progressValue = 0
     let speed = 30

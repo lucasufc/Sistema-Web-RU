@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color: var(--form-color);
 }
 .container-form {
     background-color: var(--menu-bg);
@@ -55,7 +56,7 @@
     margin-bottom: 20px;
 }
 #form-confirma {
-    background-color: var( --sign-up-a-color);
+    background-color: #796BD7;
     color: white;
 }
 /*@media only screen and (max-width: 800px) 

@@ -68,6 +68,8 @@
         --bg-capacity: #fff;
         --bg-progress-bar: #dfdfdf;
         --progress-color: #231c3d;
+
+        --form-color: black;
 }
 
 .dark {
@@ -87,7 +89,7 @@
     /* Menu */
      --menu-bg: #050505;
      --menu-a: #ff0;
-     --menu-border: 3px solid white;
+     --menu-border: 3px solid rgba(124, 124, 124, 0.251);
      --color-logo: #f5f5f5;
      --sign-up-color:#f5f5f5;
      --sign-up-a-color: #ff0;
@@ -121,4 +123,6 @@
     --bg-capacity: #0f0f0f;
     --bg-progress-bar: #f1f1f1;
     --progress-color: #ff0;
+
+    --form-color: #ff0;
 }
