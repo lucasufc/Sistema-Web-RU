@@ -4,7 +4,7 @@
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
 	<title>Cadastro - Sistema Web RU</title>
 
 	<link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
@@ -32,12 +32,23 @@
                 </span>
             </form>
         </div>
-        <div id="toggler">
-            <i class="indicator"></i>
-        </div>
+        <div class="acessibilidade">
+            <div class="botao-acessibilidade">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div>
+            <div class="comandos-acessibilidade">
+                <div id="toggler">
+                    <i class="indicator"></i>
+                </div>
+                <span>
+                    <button onclick="aumentarFonte()">A+</button>
+                    <button onclick="diminuirFonte()">A-</button>
+                </span>
+            </div>
     </div>
 	
     <script src="../scripts/darkMode.js"></script>
-
+    <script src="../scripts/fontSize.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>
 </html>

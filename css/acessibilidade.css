@@ -2,24 +2,45 @@
     position: absolute;
 
     top: 50%;
-    left: 50%;
+    left: calc(100% - 165px);
     padding: 5px;
-    z-index: 10;
+    z-index: 2;
     display: flex;
     align-items: center ;
 }
 .botao-acessibilidade {
-    background-color: var(--menu-bg);
-    color: black;
-    width: 30px;
-    height: 30px;
+    background-color: var(--ac-bg);
+    color: var(--form-color);
+    width: var(--ac-largura);
+    height: var(--ac-largura);
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 7px 0px 0px 7px;
+    font-size: 24px;
 }
 
 .comandos-acessibilidade {
-    background-color: var(--menu-bg);
+    background-color: var(--ac-bg);
     padding: 5px 10px;
-    border-left: 1px solid gray;
+    border: 1px solid gray;
+    border-right: none;
+    width: var(--acb-largura);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: var(--acb-largura);
+}
+
+:root {
+    --ac-largura: 40px;
+    --acb-largura: 125px;
+
+}
+
+.comandos-acessibilidade button{
+    border: none;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }

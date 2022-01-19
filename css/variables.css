@@ -70,6 +70,7 @@
         --progress-color: #231c3d;
 
         --form-color: black;
+        --ac-bg: #fff;
 }
 
 .dark {
@@ -125,4 +126,5 @@
     --progress-color: #ff0;
 
     --form-color: #ff0;
+    --ac-bg: #222;
 }
