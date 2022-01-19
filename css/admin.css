@@ -1,8 +1,8 @@
-#admin{
+#admin, #usuario{
     text-align: center;
 }
 body {
-    color: #3c3c3c;
+    color: var(--bg-main);
 }
 
 .page-title {

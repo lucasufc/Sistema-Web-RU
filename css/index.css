@@ -16,6 +16,7 @@
 @import url('./footer.css');
 @import url('./variables.css');
 @import url('./loginCadastro.css');
+@import url('./admin.css');
 /* General Settings */
 *{
     margin: 0px;
