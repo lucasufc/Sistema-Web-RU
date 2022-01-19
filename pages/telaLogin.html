@@ -5,12 +5,87 @@
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<title>Login - Sistema Web RU</title>
-	<link rel='stylesheet' type='text/css' media='screen' href='../css/loginCadastro.css'>
-	<script src='main.js'></script>
+	<link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
 </head>
 
 <body>
-	<!-- SISTEMA WEB RU -->	
+    <!-- SISTEMA WEB RU -->	
+    <div class="wrapper-form">
+        <a href="../index.html" class="logo">Sistema Web RU</a>
+        <div class="container-form">
+            <h2>Login</h2>
+            <form class="cl-form" action="">
+                <label for="matricula">Matrícula</label>
+                <input type="number" name="matricula" placeholder="xxxxxx">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha">
+                <span class="form-buttons"> 
+                    <button id="form-confirma">Confirmar</button>
+                    <a href="../index.html">Voltar</a>
+                </span>
+                <span>
+                    <a href="./telaCadastro.html">Cadastre-se</a> |
+                    <a href="#">Esqueceu a senha?</a>
+                </span>
+            </form>
+        </div>
+        <div class="acessibilidade">
+            <div class="botao-acessibilidade">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div>
+            <div class="comandos-acessibilidade">
+                <div id="toggler">
+                    <i class="indicator"></i>
+                </div>
+                <span>
+                    <button onclick="aumentarFonte()">A+</button>
+                    <button onclick="diminuirFonte()">A-</button>
+                </span>
+            </div>
+    </div>
+	
+    <script src="../scripts/darkMode.js"></script>
+    <script src="../scripts/fontSize.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
+
+	<!-- JAVASCRIPT -->
+	<script>
+		var formBtn = document.getElementById('formulario').elements;
+		var link = document.getElementById('linkSite');
+				
+		document.getElementById('btn').onclick = function ()
+		{ 
+			matr = formBtn['matriculaUFC'].value;
+			if (matr == 'user')
+			{
+				alert('Entrou!');
+				link.href = './user.html';
+
+				matr = '';
+				
+			}
+			
+			else if (matr == 'admin')
+			{
+				alert('Entrou!');
+				link.href = './telaAdmin.html';
+				matr = '';
+			}	
+			
+			else
+			{
+				alert('Nome de usuario inválido');
+				link.href = '';
+				matr = '';
+			}
+		}
+	</script>
+
+</body>
+</html>
+<!--
+
+    	
 	<div class="container">
 		<form id="formulario" >
 			<h2 style="text-align: center;"> 
@@ -49,39 +124,4 @@
 		</div>
 	</div>
 
-
-	<!-- JAVASCRIPT -->
-	<script>
-		var formBtn = document.getElementById('formulario').elements;
-		var link = document.getElementById('linkSite');
-				
-		document.getElementById('btn').onclick = function ()
-		{ 
-			matr = formBtn['matriculaUFC'].value;
-			if (matr == 'user')
-			{
-				alert('Entrou!');
-				link.href = './user.html';
-
-				matr = '';
-				
-			}
-			
-			else if (matr == 'admin')
-			{
-				alert('Entrou!');
-				link.href = './telaAdmin.html';
-				matr = '';
-			}	
-			
-			else
-			{
-				alert('Nome de usuario inválido');
-				link.href = '';
-				matr = '';
-			}
-		}
-	</script>
-
-</body>
-</html>
+-->

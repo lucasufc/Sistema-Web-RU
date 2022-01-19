@@ -71,6 +71,8 @@
 
         --form-color: black;
         --ac-bg: #fff;
+        --form-link:#796bd7;
+        --form-bg: #fff;
 }
 
 .dark {
@@ -127,4 +129,6 @@
 
     --form-color: #ff0;
     --ac-bg: #222;
+    --form-link:#ff0;
+    --form-bg: #222;
 }

@@ -10,7 +10,7 @@
     color: var(--form-color);
 }
 .container-form {
-    background-color: var(--menu-bg);
+    background-color: var(--form-bg);
     padding: 30px 40px;
     border-radius: 15px;
     min-width: 300px;
@@ -26,10 +26,16 @@
     align-items: flex-start;
     justify-content: center;
 }
+.cl-form a {
+    color: var(--form-link);
+}
+.cl-form span {
+    margin-top: 20px;
+}
 .cl-form input{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(121, 107, 215, 0.13) 0px 0px 0px 1px;
     margin-top: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border: none;
     padding: 5px 10px;
     font-size: var(--fs-input);
