@@ -14,9 +14,9 @@
         <a href="../index.html" class="logo">Sistema Web RU</a>
         <div class="container-form">
             <h2>Login</h2>
-            <form class="cl-form" action="">
+            <form class="cl-form">
                 <label for="matricula">Matrícula</label>
-                <input type="text" name="matricula" placeholder="xxxxxx">
+                <input type="number" name="matricula" placeholder="xxxxxx">
                 <label for="senha">Senha</label>
                 <input type="password" name="senha">
                 <span class="form-buttons"> 
@@ -50,32 +50,17 @@
 
 	<!-- JAVASCRIPT -->
 	<script>
-		var formBtn = document.getElementById('formulario').elements;
-		var link = document.getElementById('linkSite');
+		var formBtn = document.getElementById('cl-form').elements;
 				
-		document.getElementById('btn').onclick = function ()
-		{ 
+		document.getElementById('form-confirma').onclick = function (){ 
 			matr = formBtn['matriculaUFC'].value;
-			if (matr == 'user')
-			{
-				alert('Entrou!');
-				link.href = './user.html';
-
+			if (matr == 1){
+				window.location.href= './user.html';
 				matr = '';
-				
-			}
-			
-			else if (matr == 'admin')
-			{
-				alert('Entrou!');
-				link.href = './telaAdmin.html';
+			} else if (matr == 0){
+				window.location.href= './telaAdmin.html';
 				matr = '';
-			}	
-			
-			else
-			{
-				alert('Nome de usuario inválido');
-				link.href = '';
+			} else {
 				matr = '';
 			}
 		}
@@ -83,45 +68,3 @@
 
 </body>
 </html>
-<!--
-
-    	
-	<div class="container">
-		<form id="formulario" >
-			<h2 style="text-align: center;"> 
-				Sistema Web RU 
-			</h2>
-			<br>
-			<label for="matriculaUFC">Matrícula: </label>
-			<input type="text" id="matriculaUFC" name="matricula">
-			
-			<br>
-			<label for="senhaUFC">Senha: </label>
-			<input type="password" id="senhaUFC" name="senha">
-			<br><br>
-			<br><br>
-			<br>
-			
-		</form>
-
-		<br>
-		<div id="btn">
-			<a href="#" id="linkSite">
-				<button type="button" name="btnEnter" value="entrar" class="buttonSubmit">
-					Entrar
-				</button>
-			</a>
-			<br>
-		</div>
-
-		<div id="hiperlinks">
-			<br>
-			<a href="telaCadastro.html">Cadastre-se</a> 
-			| 
-			<a href="#">Esqueceu a senha?</a>
-			<br><br>
-			<a href="../index.html">Voltar para o início</a>
-		</div>
-	</div>
-
--->
