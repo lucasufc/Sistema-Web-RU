@@ -14,8 +14,8 @@
     <div class="container">
         <div class="profile">
             <div>
-                <img id="profile-image" src="/img/admin.jpg" alt="">
-                <span id="admin">Admin</span>
+                <img id="profile-image" src="<%- admin['imageSrc'] %>" alt="">
+                <span id="admin"><%- admin['name'] %></span>
                 <div class="evaluation">
                     <img class="star-image" src="/img/star.png" alt="">
                     <img class="star-image" src="/img/star.png" alt="">
@@ -29,9 +29,9 @@
             <div class="info-section">
                 <span class="section-title">Informações de Administrador</span>
                 <div class="info-column">
-                    <div><span class="field">Nome: </span>Admin</div>
-                    <div><span class="field">Email: </span>admin@admin.com</div>
-                    <div><span class="field">Matrícula: </span>010101</div>
+                    <div><span class="field">Nome: </span><%- admin['name'] %></div>
+                    <div><span class="field">Email: </span><%- admin['email'] %></div>
+                    <div><span class="field">Matrícula: </span><%- admin['registrationNumber'] %></div>
                 </div>
             </div>
             <hr>

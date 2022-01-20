@@ -71,13 +71,10 @@ app.get('/usuario', (req, res) => {
 
 app.get('/admin', (req, res) => {
     const admin = {
-        name: "Glauton Santos",
-        imageSrc: "/img/perfil.jpg",
+        name: "Admin",
+        imageSrc: "/img/admin.jpg",
         email: "glautoncardoso@gmail.com",
         registrationNumber: "404201",
-        favoriteDish: "Frango frito",
-        time: "13:00",
-        enableNotifications: "Sim"
     }
     res.render('views/adminProfile', { admin: admin });
 });
