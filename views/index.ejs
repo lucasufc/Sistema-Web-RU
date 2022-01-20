@@ -46,8 +46,23 @@
             </footer>
         </main>
     </div>
-
+    <div class="acessibilidade">
+        <div class="botao-acessibilidade">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="comandos-acessibilidade">
+            <div id="toggler">
+                <i class="indicator"></i>
+            </div>
+            <span>
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </span>
+        </div>
+    </div>
     <script src="./app.js" data-desjejum="<%- desjejum %>" data-restaurants="<%- restaurants %>" ></script>
+    <script src="../scripts/darkMode.js"></script>
+    <script src="../scripts/fontSize.js"></script>
     <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>
 </html>

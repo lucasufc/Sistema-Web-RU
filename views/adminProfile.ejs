@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="/admin.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
-<body style="background-color: #F5F7FB;">
+<body>
     <div class="page-title">
         <h1>Perfil do Administrador</h1>
         <hr>
@@ -39,5 +39,21 @@
             </div>
         </div>
     </div>
+    <div class="acessibilidade">
+        <div class="botao-acessibilidade">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="comandos-acessibilidade">
+            <div id="toggler">
+                <i class="indicator"></i>
+            </div>
+            <span>
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </span>
+        </div>
+</div>
     <script src="../scripts/app.js" ></script>
+    <script src="../scripts/darkMode.js"></script>
+    <script src="../scripts/fontSize.js"></script>
 </body>
