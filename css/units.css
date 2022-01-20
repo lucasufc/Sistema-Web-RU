@@ -1,24 +1,24 @@
 .benfica {
-    background-image: url('../assets/img/benfica-blur.jpg');
+    background-image: url('./img/benfica-blur.jpg');
 }
 .benfica:hover {
-    background-image: url('../assets/img/benfica.jpg');
+    background-image: url('./img/benfica.jpg');
 }
 .porangabucu {
-    background-image: url('../assets/img/porangabucu-blur.jpg');
+    background-image: url('./img/porangabucu-blur.jpg');
 }
 .porangabucu:hover {
-    background-image: url('../assets/img/porangabucu.jpg');
+    background-image: url('./img/porangabucu.jpg');
 }
 .picii {
-    background-image: url('../assets/img/picii-blur.jpg');
+    background-image: url('./img/picii-blur.jpg');
 }
 .picii:hover {
-    background-image: url('../assets/img/picii.jpg');
+    background-image: url('./img/picii.jpg');
 }
 .piciii {
-    background-image: url('../assets/img/piciii-blur.jpg');
+    background-image: url('./img/piciii-blur.jpg');
 }
 .piciii:hover {
-    background-image: url('../assets/img/piciii.jpg');
+    background-image: url('./img/piciii.jpg');
 }
