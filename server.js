@@ -25,7 +25,20 @@ app.get('/', (req, res) => {
         benfica: ['Benfica', '100', '60'],
         porangabucu: ['Porangabuçu', '100', '90']
     }
-    res.render('index', { desjejum: desjejum, restaurants: restaurants });
+    res.render('views/index', { desjejum: desjejum, restaurants: restaurants });
+});
+
+app.get('/perfil', (req, res) => {
+    const user = {
+        name: "Glauton Santos",
+        imageSrc: "/img/perfil.jpg",
+        email: "glautoncardoso@gmail.com",
+        registrationNumber: "404201",
+        favoriteDish: "Frango frito",
+        time: "13:00",
+        enableNotifications: "Sim"
+    }
+    res.render('views/profile', { user: user });
 });
 
 app.listen(3000, () => console.log(`App listening on port!`));
