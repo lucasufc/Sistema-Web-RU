@@ -2,10 +2,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <title>Admin - Sistema Web RU</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
-<body style="background-color: #F5F7FB;">
+<body>
     <div class="page-title">
         <h1>Perfil do Administrador</h1>
         <hr>
@@ -39,5 +40,23 @@
             </div>
         </div>
     </div>
-    <script src="../scripts/app.js" ></script>
+    <div class="acessibilidade">
+        <div class="botao-acessibilidade">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="comandos-acessibilidade">
+            <div id="toggler">
+                <i class="indicator"></i>
+            </div>
+            <span>
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </span>
+        </div>
+    </div>
+
+    <script src="../scripts/darkMode.js"></script>
+    <script src="../scripts/fontSize.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
+    
 </body>

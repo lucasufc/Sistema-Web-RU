@@ -10,13 +10,14 @@
     box-shadow: var(--btn-shadow);
     color: var(--btn-color);
     font-family: inherit;
-    font-size: 18px;
+    font-size: var(--fs-button);
 }
 .btn:hover {
     cursor: pointer;
 }
 .btn-login {
     background-color: #796BD7;
+    color: white;
     margin-bottom: 15px;
 }
 .btn-login:hover {

@@ -12,13 +12,11 @@
 .menu header {
     display: flex;
     background-color: var(--menu-bg);
-    font-size: 2em;
     border-radius: 0 30px 0 0;
-}
-.menu > header  a {
     color: #919191;
-    font-size: 27px;
+    font-size: var(--fs-logo);
 }
+
 .menu > nav {
     min-height: calc(100vh - var(--header-height));
     justify-content: space-between;

@@ -8,6 +8,7 @@
 @import url('./header.css');
 @import url('./menu.css');
 @import url('./ru-item.css');
+@import url('./acessibilidade.css');
 @import url('./buttons.css');
 @import url('./card.css');
 @import url('./toggler.css');
@@ -15,6 +16,7 @@
 @import url('./footer.css');
 @import url('./variables.css');
 @import url('./loginCadastro.css');
+@import url('./admin.css');
 /* General Settings */
 *{
     margin: 0px;

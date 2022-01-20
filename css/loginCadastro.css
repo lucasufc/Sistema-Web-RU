@@ -2,16 +2,19 @@
     width: 100%;
     height: 100%;
     display: flex;
+    background-color: var(--bg-main);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color: var(--form-color);
 }
 .container-form {
-	background-color: var(--bg-main);
+    background-color: var(--form-bg);
     padding: 30px 40px;
     border-radius: 15px;
     min-width: 300px;
+    box-shadow: rgba(121, 107, 215, 0.05) 0px 6px 24px 0px, rgba(121, 107, 215, 0.562) 0px 0px 0px 1px;
 
 }
 .container-form h2{
@@ -23,18 +26,45 @@
     align-items: flex-start;
     justify-content: center;
 }
+.cl-form a {
+    color: var(--form-link);
+}
+.cl-form span {
+    margin-top: 20px;
+}
 .cl-form input{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(121, 107, 215, 0.13) 0px 0px 0px 1px;
     margin-top: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border: none;
     padding: 5px 10px;
-    font-size: 1.1rem;
+    font-size: var(--fs-input);
 }
 
 .form-buttons {
     align-self: flex-end;
+    margin-top: 5px;
 }
 
+.form-buttons button, .form-buttons a {
+    border: none;
+    font-size: var(--fs-button);
+    padding: 10px;
+    background-color: var(--bg-btn);
+    color: var(--btn-color);
+    cursor: pointer;
+}
+.logo {
+    font-size: var(--fs-logo);
+    color: var(--color-logo);
+    justify-self: flex-start;
+    font-family: var(--title-font);
+    margin-bottom: 20px;
+}
+#form-confirma {
+    background-color: #796BD7;
+    color: white;
+}
 /*@media only screen and (max-width: 800px) 
 {
 	.container
