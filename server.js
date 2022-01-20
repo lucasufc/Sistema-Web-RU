@@ -12,23 +12,7 @@ app.use(express.static(__dirname + '/assets'));
 
 app.set('views', path.join(__dirname, '/'));
 
-app.get('/', (req, res) => {
-    const desjejum = {
-        bebidas: [ '0x1F964','Bebidas', 'Café', 'Leite Quente / Frio (Contém Lactose)', 'Leite de Soja', 'Suco de Maracujá' ],
-        paes: [ '0x1F35E',' Pães','Pão Carioca (Contém Glúten)' ,'Pão Sovado (Contém Glúten)' ],
-        frutas: ['0x1F34E',' Frutas', 'Laranja', 'Melão Espanhol'],
-        especial: ['0x1F31F',' Especial', 'Achocolatado (Contém Lactose)', 'Bolo (Contém Lactose e Glúten)']
-    }
-    const restaurants =  {
-        pici1: ['Pici I', '100','15'],
-        pici2: ['Pici II', '100', '45'],
-        benfica: ['Benfica', '100', '60'],
-        porangabucu: ['Porangabuçu', '100', '90']
-    }
-    res.render('views/index', { desjejum: desjejum, restaurants: restaurants });
-});
-
-app.get('/usuario', (req, res) => {
+function selectUser(profile) {
     var user = {
         name: "Glauton Santos",
         imageSrc: "/img/perfil-glauton-santos.jpg",
@@ -66,14 +50,34 @@ app.get('/usuario', (req, res) => {
         enableNotifications: "Não"
     }
 
-    if(req.query.profile == 2) {
+    if(profile == user2['registrationNumber']) {
         user = user2;
-    } else if (req.query.profile == 3) {
+    } else if (profile == user3['registrationNumber']) {
         user = user3;
-    } else if (req.query.profile == 4) {
+    } else if (profile == user4['registrationNumber']) {
         user = user4;
     }
+    return user;
+}
 
+app.get('/', (req, res) => {
+    const desjejum = {
+        bebidas: [ '0x1F964','Bebidas', 'Café', 'Leite Quente / Frio (Contém Lactose)', 'Leite de Soja', 'Suco de Maracujá' ],
+        paes: [ '0x1F35E',' Pães','Pão Carioca (Contém Glúten)' ,'Pão Sovado (Contém Glúten)' ],
+        frutas: ['0x1F34E',' Frutas', 'Laranja', 'Melão Espanhol'],
+        especial: ['0x1F31F',' Especial', 'Achocolatado (Contém Lactose)', 'Bolo (Contém Lactose e Glúten)']
+    }
+    const restaurants =  {
+        pici1: ['Pici I', '100','15'],
+        pici2: ['Pici II', '100', '45'],
+        benfica: ['Benfica', '100', '60'],
+        porangabucu: ['Porangabuçu', '100', '90']
+    }
+    res.render('views/index', { desjejum: desjejum, restaurants: restaurants });
+});
+
+app.get('/usuario', (req, res) => {
+    const user = selectUser(req.query.profile);
     res.render('views/userProfile', { user: user });
 });
 
@@ -91,7 +95,8 @@ app.get('/admin', (req, res) => {
 });
 
 app.get('/editarUsuario', (req, res) => {
-    res.render('views/editUserProfile.ejs');
+    const user = selectUser(req.query.profile);
+    res.render('views/editUserProfile.ejs', { user: user });
 });
 
 app.get('/cadastro', (req, res) => {

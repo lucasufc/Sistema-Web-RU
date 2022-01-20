@@ -11,8 +11,6 @@ const restaurants =  {
     porangabucu: ['Porangabuçu', '100', '90']
 }
 
-console.log(getSyncScriptParams())
-
 main()
 
 function main () {
@@ -21,16 +19,6 @@ function main () {
     menuGenerator(desjejum, 'desjejum')
     menuGenerator(desjejum, 'almoco')
     menuGenerator(desjejum, 'jantar')
-}
-function getSyncScriptParams() {
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length-1];
-    var scriptName = lastScript;
-    console.log(scriptName.getAttribute('data-desjejum'));
-    return {
-        desjejum: scriptName.getAttribute('data-desjejum'),
-        restaurants: scriptName.getAttribute('data-restaurants')
-    };
 }
 function weekTitle () {
     const title = document.querySelector('h1.title')
