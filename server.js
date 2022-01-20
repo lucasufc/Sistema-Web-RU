@@ -107,4 +107,8 @@ app.get('/login', (req, res) => {
     res.render('views/login');
 });
 
+app.get('/sobre', (req, res) => {
+    res.render('views/xml/about');
+});
+
 app.listen(3000, () => console.log(`App listening on port!`));
