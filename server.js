@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
     res.render('views/index', { desjejum: desjejum, restaurants: restaurants });
 });
 
-app.get('/perfil', (req, res) => {
+app.get('/usuario', (req, res) => {
     const user = {
         name: "Glauton Santos",
         imageSrc: "/img/perfil.jpg",
@@ -38,7 +38,28 @@ app.get('/perfil', (req, res) => {
         time: "13:00",
         enableNotifications: "Sim"
     }
-    res.render('views/profile', { user: user });
+    res.render('views/userProfile', { user: user });
+});
+
+app.get('/admin', (req, res) => {
+    const admin = {
+        name: "Glauton Santos",
+        imageSrc: "/img/perfil.jpg",
+        email: "glautoncardoso@gmail.com",
+        registrationNumber: "404201",
+        favoriteDish: "Frango frito",
+        time: "13:00",
+        enableNotifications: "Sim"
+    }
+    res.render('views/adminProfile', { admin: admin });
+});
+
+app.get('/cadastro', (req, res) => {
+    res.render('views/registration');
+});
+
+app.get('/login', (req, res) => {
+    res.render('views/login');
 });
 
 app.listen(3000, () => console.log(`App listening on port!`));

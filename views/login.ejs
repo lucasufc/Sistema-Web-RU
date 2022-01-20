@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Login - Sistema Web RU</title>
+	<link rel='stylesheet' type='text/css' media='screen' href='/loginCadastro.css'>
+	<script src='main.js'></script>
+</head>
+
+<body>
+	<!-- SISTEMA WEB RU -->	
+	<div class="container">
+		<form id="formulario" >
+			<h2 style="text-align: center;"> 
+				Sistema Web RU 
+			</h2>
+			<br>
+			<label for="matriculaUFC">Matrícula: </label>
+			<input type="text" id="matriculaUFC" name="matricula">
+			
+			<br>
+			<label for="senhaUFC">Senha: </label>
+			<input type="password" id="senhaUFC" name="senha">
+			<br><br>
+			<br><br>
+			<br>
+			
+		</form>
+
+		<br>
+		<div id="btn">
+			<a href="#" id="linkSite">
+				<button type="button" name="btnEnter" value="entrar" class="buttonSubmit">
+					Entrar
+				</button>
+			</a>
+			<br>
+		</div>
+
+		<div id="hiperlinks">
+			<br>
+			<a href="telaCadastro.html">Cadastre-se</a> 
+			| 
+			<a href="#">Esqueceu a senha?</a>
+			<br><br>
+			<a href="../index.html">Voltar para o início</a>
+		</div>
+	</div>
+
+
+	<!-- JAVASCRIPT -->
+	<script>
+		var formBtn = document.getElementById('formulario').elements;
+		var link = document.getElementById('linkSite');
+				
+		document.getElementById('btn').onclick = function ()
+		{ 
+			matr = formBtn['matriculaUFC'].value;
+			if (matr == 'user')
+			{
+				alert('Entrou!');
+				link.href = './user.html';
+
+				matr = '';
+				
+			}
+			
+			else if (matr == 'admin')
+			{
+				alert('Entrou!');
+				link.href = './telaAdmin.html';
+				matr = '';
+			}	
+			
+			else
+			{
+				alert('Nome de usuario inválido');
+				link.href = '';
+				matr = '';
+			}
+		}
+	</script>
+
+</body>
+</html>
