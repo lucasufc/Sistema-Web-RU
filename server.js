@@ -29,15 +29,51 @@ app.get('/', (req, res) => {
 });
 
 app.get('/usuario', (req, res) => {
-    const user = {
+    var user = {
         name: "Glauton Santos",
-        imageSrc: "/img/perfil.jpg",
+        imageSrc: "/img/perfil-glauton-santos.jpg",
         email: "glautoncardoso@gmail.com",
         registrationNumber: "404201",
         favoriteDish: "Frango frito",
         time: "13:00",
         enableNotifications: "Sim"
     }
+    var user2 = {
+        name: "Lucas Martins",
+        imageSrc: "/img/perfil-lucas-martins.jpeg",
+        email: "lucasmartins@gmail.com",
+        registrationNumber: "404206",
+        favoriteDish: "Fígado",
+        time: "11:00",
+        enableNotifications: "Não"
+    }
+    var user3 = {
+        name: "Victor Santos",
+        imageSrc: "/img/perfil-victor-santos.jpeg",
+        email: "victorsantos@gmail.com",
+        registrationNumber: "404205",
+        favoriteDish: "Estrogonofe de carne",
+        time: "12:30",
+        enableNotifications: "Sim"
+    }
+    var user4 = {
+        name: "Anderson Leandro",
+        imageSrc: "/img/perfil-anderson-leandro.jpeg",
+        email: "andersonleandro@gmail.com",
+        registrationNumber: "404203",
+        favoriteDish: "Feijoada",
+        time: "12:00",
+        enableNotifications: "Não"
+    }
+
+    if(req.query.profile == 2) {
+        user = user2;
+    } else if (req.query.profile == 3) {
+        user = user3;
+    } else if (req.query.profile == 4) {
+        user = user4;
+    }
+
     res.render('views/userProfile', { user: user });
 });
 
