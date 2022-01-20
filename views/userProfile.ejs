@@ -6,7 +6,7 @@
     <title>Página de Usuário</title>
     <link rel="stylesheet" href="./user.css">
 </head>
-<body style="background-color: #F5F7FB;">
+<body>
     <div class="page-title">
         <h1>Perfil do usuário</h1>
         <hr>
@@ -69,4 +69,22 @@
             </div>
         </div>
     </div>
+
+    <div class="acessibilidade">
+        <div class="botao-acessibilidade">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="comandos-acessibilidade">
+            <div id="toggler">
+                <i class="indicator"></i>
+            </div>
+            <span>
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </span>
+        </div>
+    </div>
+    <script src="./app.js" ></script>
+    <script src="./darkMode.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>
