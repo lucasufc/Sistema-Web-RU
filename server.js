@@ -90,6 +90,10 @@ app.get('/admin', (req, res) => {
     res.render('views/adminProfile', { admin: admin });
 });
 
+app.get('/editarUsuario', (req, res) => {
+    res.render('views/editUserProfile.ejs');
+});
+
 app.get('/cadastro', (req, res) => {
     res.render('views/registration');
 });
