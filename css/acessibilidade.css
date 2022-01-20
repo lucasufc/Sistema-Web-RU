@@ -1,7 +1,7 @@
 .acessibilidade{
     position: absolute;
 
-    top: 50%;
+    top: calc(99% - var(--acb-largura));
     left: calc(100% - 165px);
     padding: 5px;
     z-index: 2;
@@ -14,9 +14,12 @@
     width: var(--ac-largura);
     height: var(--ac-largura);
     display: flex;
+    border: 1px solid black;
+    border-right: none;
     align-items: center;
     justify-content: center;
     border-radius: 7px 0px 0px 7px;
+    cursor: pointer;
     font-size: 24px;
 }
 

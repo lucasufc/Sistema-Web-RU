@@ -4,6 +4,7 @@
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
 	<title>Login - Sistema Web RU</title>
 	<link rel='stylesheet' type='text/css' media='screen' href='../css/index.css'>
 </head>
@@ -16,11 +17,11 @@
             <h2>Login</h2>
             <form class="cl-form">
                 <label for="matricula">Matrícula</label>
-                <input type="number" name="matricula" placeholder="xxxxxx">
+                <input id="matricula" type="number" name="matricula" placeholder="xxxxxx">
                 <label for="senha">Senha</label>
-                <input type="password" name="senha">
+                <input id="password" type="password" name="senha">
                 <span class="form-buttons"> 
-                    <button id="form-confirma">Confirmar</button>
+                    <button id="form-confirma" onclick="login(e)">Confirmar</button>
                     <a href="../index.html">Voltar</a>
                 </span>
                 <span>
@@ -46,24 +47,12 @@
 	
     <script src="../scripts/darkMode.js"></script>
     <script src="../scripts/fontSize.js"></script>
+    <script src="../scripts/login.js"></script>
     <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 
 	<!-- JAVASCRIPT -->
 	<script>
-		var formBtn = document.getElementById('cl-form').elements;
-				
-		document.getElementById('form-confirma').onclick = function (){ 
-			matr = formBtn['matriculaUFC'].value;
-			if (matr == 1){
-				window.location.href= './user.html';
-				matr = '';
-			} else if (matr == 0){
-				window.location.href= './telaAdmin.html';
-				matr = '';
-			} else {
-				matr = '';
-			}
-		}
+		
 	</script>
 
 </body>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <title>Editar Usuario - Sistema Web RU</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
-<body style="background-color: #F5F7FB;">
+<body>
     <div class="page-title">
         <h1>Perfil do usuário</h1>
         <hr>
@@ -12,7 +14,7 @@
         <div class="profile">
             <div>
                 <img id="profile-image" src="../assets//img/perfil.jpg">
-                <span>Glauton Santos</span>
+                <span id="username">Glauton Santos</span>
                 <div class="evaluation">
                     <img class="star-image" src="../assets//img/star.png">
                     <img class="star-image" src="../assets//img/star.png">
@@ -73,4 +75,21 @@
             </div>
         </div>
     </div>
+    <div class="acessibilidade">
+        <div class="botao-acessibilidade">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="comandos-acessibilidade">
+            <div id="toggler">
+                <i class="indicator"></i>
+            </div>
+            <span>
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </span>
+        </div>
+    </div>
+    <script src="../scripts/darkMode.js"></script>
+    <script src="../scripts/fontSize.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>

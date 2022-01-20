@@ -1,5 +1,7 @@
-#admin, #usuario{
+#admin, #username {
     text-align: center;
+    color: var(--user-color);
+    font-size: 1.1rem;
 }
 body {
     color: var(--bg-main);
@@ -10,18 +12,29 @@ body {
     justify-content: center;
     align-items: center;
     margin: 60px 60px -50px 60px;
+    color: var(--user-section-title);
 }
 
 .page-title h1 {
     width: 500px;
 }
+#perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#link-user{
+    margin-top: 20px;
+    color: var(--form-link);
 
+}
 .container {
     display: flex;
     margin: 70px;
     border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: var(--form-bg);
+    box-shadow: var(--user-shadow);
 }
 
 .profile {
@@ -101,11 +114,20 @@ hr {
 }
 
 .info-section .section-title {
-    color: #b9b4b4;
+    font-weight: bold;
+    color: var(--user-section-title);
 }
 
 .info-section .field {
-    color: #737373;
+    color: var(--user-section-field);
+    font-weight: bold;
+}
+.info-section a {
+    color: var(--user-section-field);
+    font-weight: bold;
+}
+.info-column {
+    color: var(--user-section-title);
 }
 
 .onoff {

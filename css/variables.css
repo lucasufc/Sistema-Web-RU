@@ -73,6 +73,10 @@
         --ac-bg: #fff;
         --form-link:#796bd7;
         --form-bg: #fff;
+        --user-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        --user-color: black;
+        --user-section-title: #000;
+        --user-section-field: #796bd7;
 }
 
 .dark {
@@ -131,4 +135,8 @@
     --ac-bg: #222;
     --form-link:#ff0;
     --form-bg: #222;
+    --user-shadow:box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    --user-color: #fff;
+    --user-section-title: #fff;
+    --user-section-field: #ff0;
 }
