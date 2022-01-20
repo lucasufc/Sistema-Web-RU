@@ -61,7 +61,7 @@ function selectUser(profile) {
 }
 
 app.get('/', (req, res) => {
-    res.render('views/index', { desjejum: desjejum, restaurants: restaurants });
+    res.render('views/index');
 });
 
 app.get('/usuario', (req, res) => {
