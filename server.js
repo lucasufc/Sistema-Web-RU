@@ -108,7 +108,19 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/sobre', (req, res) => {
-    res.render('views/xml/about');
+    res.render('views/about/index');
+});
+
+app.get('/sobre/horario', (req, res) => {
+    res.render('views/about/data/time');
+});
+
+app.get('/sobre/ru', (req, res) => {
+    res.render('views/about/data/ru');
+});
+
+app.get('/sobre/valor', (req, res) => {
+    res.render('views/about/data/value');
 });
 
 app.listen(3000, () => console.log(`App listening on port!`));
