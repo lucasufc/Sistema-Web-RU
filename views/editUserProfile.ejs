@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <title>Editar Usuario - Sistema Web RU</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="page-title">
+        <h1>Perfil do usuário</h1>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="profile">
+            <div>
+                <img id="profile-image" src="<%- user['imageSrc'] %>">
+                <span id="username"><%- user['name'] %></span>
+                <div class="evaluation">
+                    <img class="star-image" src="/img/star.png">
+                    <img class="star-image" src="/img/star.png">
+                    <img class="star-image" src="/img/star.png">
+                    <img class="star-image" src="/img/star.png">
+                    <img class="star-image" src="/img/star.png">
+                </div>
+            </div>
+        </div>
+        <div class="profile-info">
+            <div class="info-section">
+                <span class="section-title">Informações de usuário</span>
+                <div class="info-column">
+                    <div><span class="field">Nome: </span><input type="text" id="nome" name="nome" value="<%- user['name'] %>"></div>
+                    <div><span class="field">Email: </span><input type="text" id="nome" name="nome" value="<%- user['email'] %>"></div>
+                    <div><span class="field">Matrícula: </span><input type="text" id="nome" name="nome" value="<%- user['registrationNumber'] %>"></div>
+                </div>
+            </div>
+            <hr>
+            <div class="info-section">
+                <span class="section-title">Preferências do usuário</span>
+                <div class="info-column">
+                    <div><span class="field">Prato favorito: </span><input type="text" id="nome" name="nome" value="<%- user['favoriteDish'] %>"></div>
+                    <div><span class="field">Horários: </span><input type="text" id="nome" name="nome" value="<%- user['time'] %>"></div>
+                    <div>
+                        <div>
+                            <div class="onoff">
+                                <span class="field">Habilitar notificações: </span>
+                                <input type="checkbox" class="toggle" id="onoff1">
+                                <label class="switch" for="onoff1"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="info-section">
+                <span class="section-title">Integrações do usuário</span>
+                <div class="info-column">
+                    <div>
+                        <div class="onoff">
+                            <span class="field">Google Calendar: </span>
+                            <input type="checkbox" class="toggle" id="onoff1">
+                            <label class="switch" for="onoff1"></label>
+                        </div>
+                    </div>
+                    <div class="onoff">
+                        <span class="field">Sigaa: </span>
+                        <input type="checkbox" class="toggle" id="onoff2">
+                        <label class="switch" for="onoff2"></label>
+                    </div>
+                    <div class="onoff">
+                        <span class="field">Facebook: </span>
+                        <input type="checkbox" class="toggle" id="onoff3">
+                        <label class="switch" for="onoff3"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="acessibilidade">
+        <div class="botao-acessibilidade">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="comandos-acessibilidade">
+            <div id="toggler">
+                <i class="indicator"></i>
+            </div>
+            <span>
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </span>
+        </div>
+    </div>
+    <script src="./darkMode.js"></script>
+    <script src="./fontSize.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
+</body>

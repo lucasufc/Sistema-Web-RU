@@ -10,6 +10,7 @@ const restaurants =  {
     benfica: ['Benfica', '100', '60'],
     porangabucu: ['Porangabuçu', '100', '90']
 }
+
 main()
 
 function main () {
@@ -129,6 +130,7 @@ function getUnit( units, cards ) {
     card.classList.add(unit.replace(' ', '').replace('ç','c').toLowerCase())
     let h2 = document.createElement('h2')
     h2.innerText = unit
+    console.log(card)
     setCapacity(maxOcupation, currentOcupation, card)
     card.appendChild(h2)
     cards.appendChild(card)
