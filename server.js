@@ -1,5 +1,7 @@
 const express = require('express');
-
+const crypto = require('crypto')
+const alg = 'aes-256-ctr'
+const pwd = 'abcdabcd'
 const path = require('path');
 
 const bodyParser = require('body-parser');
@@ -30,7 +32,7 @@ function selectUser(profile) {
             favoriteDish: "Frango frito",
             time: "13:00",
             enableNotifications: "Sim",
-            password: "teste1234",
+            password: "a531605115996ca7c8",
             rule: "admin"
         },
         {
@@ -41,7 +43,7 @@ function selectUser(profile) {
             favoriteDish: "Fígado",
             time: "11:00",
             enableNotifications: "Não",
-            password: "teste1235",
+            password: "a531605115996ca7c9",
             rule: "user"
         },
         {
@@ -52,7 +54,7 @@ function selectUser(profile) {
             favoriteDish: "Estrogonofe de carne",
             time: "12:30",
             enableNotifications: "Sim",
-            password: "teste1236",
+            password: "a531605115996ca7ca",
             rule: "admin"
         },
         {
@@ -63,7 +65,7 @@ function selectUser(profile) {
             favoriteDish: "Feijoada",
             time: "12:00",
             enableNotifications: "Não",
-            password: "teste1237",
+            password: "a531605115996ca7cb",
             rule: "user"
         }
     ]
@@ -134,7 +136,7 @@ app.get('/login', (req, res) => {
 app.post('/login', (req, res) => {
     var user = selectUser(req.body.registrationNumber);
     if(user == null) res.redirect("/login");
-    if (checkPassword(req.body.password, user["password"])) {
+    if (checkPassword(req.body.password, descriptografar(user["password"]))) {
         res.cookie('token', req.body.registrationNumber);
         if (user["rule"] == "user") {
             res.redirect("/usuario");
@@ -163,3 +165,15 @@ app.get('/sobre/valor', (req, res) => {
 });
 
 app.listen(3000, () => console.log(`App listening on port!`));
+
+function criptografar(text) {
+    const cipher = crypto.createCipher(alg, pwd)
+    const crypted = cipher.update(text, 'utf8', 'hex')
+    return crypted
+}
+
+function descriptografar(text) {
+    const decipher = crypto.createDecipher(alg, pwd)
+    const plain = decipher.update(text, 'hex', 'utf8')
+    return plain
+}
