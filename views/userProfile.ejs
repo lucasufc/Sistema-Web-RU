@@ -23,7 +23,14 @@
                     <img class="star-image" src="/img/star.png" alt="">
                     <img class="star-image" src="/img/star.png" alt="">
                 </div>
-                <a style="margin-top: 10px;" href="/editarUsuario?profile=<%- user['registrationNumber'] %>">Editar</a>
+                <a style="margin-top: 10px; color: #796BD7 !important;" href="/editarUsuario?profile=<%- user['registrationNumber'] %>">Editar</a>
+                <!-- <a style="margin-top: 10px; color: #000 !important;" href="/logout">Sair</a> -->
+
+                <div class="flex-row buttons">
+                    <a href="/logout" class="btn btn-login" style="text-align: center;">
+                        Log-out
+                    </a>
+                </div>
             </div>
         </div>
         <div class="profile-info">

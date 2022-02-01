@@ -4,6 +4,8 @@ const path = require('path');
 
 const bodyParser = require('body-parser');
 
+const cookieParser = require('cookie-parser');
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -14,67 +16,70 @@ app.use(express.static(__dirname + '/assets'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.set('views', path.join(__dirname, '/'));
 
 function selectUser(profile) {
-    var user = {
-        name: "Glauton Santos",
-        imageSrc: "/img/perfil-glauton-santos.jpg",
-        email: "glautoncardoso@gmail.com",
-        registrationNumber: "404201",
-        favoriteDish: "Frango frito",
-        time: "13:00",
-        enableNotifications: "Sim",
-        password: "teste1234",
-        rule: "admin"
-    }
-    var user2 = {
-        name: "Lucas Martins",
-        imageSrc: "/img/perfil-lucas-martins.jpeg",
-        email: "lucasmartins@gmail.com",
-        registrationNumber: "404206",
-        favoriteDish: "Fígado",
-        time: "11:00",
-        enableNotifications: "Não",
-        password: "teste1235",
-        rule: "user"
-    }
-    var user3 = {
-        name: "Victor Santos",
-        imageSrc: "/img/perfil-victor-santos.jpeg",
-        email: "victorsantos@gmail.com",
-        registrationNumber: "404205",
-        favoriteDish: "Estrogonofe de carne",
-        time: "12:30",
-        enableNotifications: "Sim",
-        password: "teste1236",
-        rule: "admin"
-    }
-    var user4 = {
-        name: "Anderson Leandro",
-        imageSrc: "/img/perfil-anderson-leandro.jpeg",
-        email: "andersonleandro@gmail.com",
-        registrationNumber: "404203",
-        favoriteDish: "Feijoada",
-        time: "12:00",
-        enableNotifications: "Não",
-        password: "teste1237",
-        rule: "user"
-    }
+    var users = [
+        {
+            name: "Glauton Santos",
+            imageSrc: "/img/perfil-glauton-santos.jpg",
+            email: "glautoncardoso@gmail.com",
+            registrationNumber: "404201",
+            favoriteDish: "Frango frito",
+            time: "13:00",
+            enableNotifications: "Sim",
+            password: "teste1234",
+            rule: "admin"
+        },
+        {
+            name: "Lucas Martins",
+            imageSrc: "/img/perfil-lucas-martins.jpeg",
+            email: "lucasmartins@gmail.com",
+            registrationNumber: "404206",
+            favoriteDish: "Fígado",
+            time: "11:00",
+            enableNotifications: "Não",
+            password: "teste1235",
+            rule: "user"
+        },
+        {
+            name: "Victor Santos",
+            imageSrc: "/img/perfil-victor-santos.jpeg",
+            email: "victorsantos@gmail.com",
+            registrationNumber: "404205",
+            favoriteDish: "Estrogonofe de carne",
+            time: "12:30",
+            enableNotifications: "Sim",
+            password: "teste1236",
+            rule: "admin"
+        },
+        {
+            name: "Anderson Leandro",
+            imageSrc: "/img/perfil-anderson-leandro.jpeg",
+            email: "andersonleandro@gmail.com",
+            registrationNumber: "404203",
+            favoriteDish: "Feijoada",
+            time: "12:00",
+            enableNotifications: "Não",
+            password: "teste1237",
+            rule: "user"
+        }
+    ]
 
-    if(profile == user2['registrationNumber']) {
-        user = user2;
-    } else if (profile == user3['registrationNumber']) {
-        user = user3;
-    } else if (profile == user4['registrationNumber']) {
-        user = user4;
-    }
-    return user;
+    var selectedUser = null;
+
+    users.forEach(user => {
+        if(user["registrationNumber"] == profile) {
+            selectedUser = user;
+        }
+    })
+    return selectedUser;
 }
 
-function checkPassword(password, incomePassword) {
-    return true;
+function checkPassword(incomePassword, expectedPassword) {
+    if(incomePassword == expectedPassword) return true;
 }
 
 app.get('/', (req, res) => {
@@ -82,18 +87,26 @@ app.get('/', (req, res) => {
 });
 
 app.get('/usuario', (req, res) => {
-    const user = selectUser(req.query.profile);
-    res.render('views/userProfile', { user: user });
+    const user = selectUser(req.cookies.token);
+    if (user["rule"] == "user") {
+        res.render('views/userProfile', { user: user });
+    } else {
+        res.send("Sem autorização");
+    }
 });
 
 app.get('/admin', (req, res) => {
-    const admin = {
-        name: "Admin",
-        imageSrc: "/img/admin.jpg",
-        email: "glautoncardoso@gmail.com",
-        registrationNumber: "404201",
+    const user = selectUser(req.cookies.token);
+    if (user["rule"] == "admin") {
+        res.render('views/adminProfile', { admin: user });
+    } else {
+        res.send("Sem autorização");
     }
-    res.render('views/adminProfile', { admin: admin });
+});
+
+app.get('/logout', (req, res) => {
+    res.cookie('token', null);
+    res.redirect('/login');
 });
 
 app.get('/editarUsuario', (req, res) => {
@@ -106,19 +119,30 @@ app.get('/cadastro', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render('views/login');
+    var user = selectUser(req.cookies.token);
+    if (user == null) {
+        res.render('views/login');
+    } else {
+        if (user["rule"] == "user") {
+            res.redirect("/usuario");
+        } else if (user["rule"] == "admin") {
+            res.redirect("/admin");
+        }
+    }
 });
 
 app.post('/login', (req, res) => {
-    user = selectUser(req.body.registrationNumber);
-    if (checkPassword(req.body.password)) {
+    var user = selectUser(req.body.registrationNumber);
+    if(user == null) res.redirect("/login");
+    if (checkPassword(req.body.password, user["password"])) {
+        res.cookie('token', req.body.registrationNumber);
         if (user["rule"] == "user") {
-            res.redirect(`/usuario?profile=${req.body.registrationNumber}`);
+            res.redirect("/usuario");
         } else if (user["rule"] == "admin") {
             res.redirect("/admin");
         }
     } else {
-        return "error";
+        res.redirect("/login");
     }
 });
 
