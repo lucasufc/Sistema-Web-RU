@@ -24,4 +24,3 @@ function diminuirFonte() {
 function setFont(){
     document.getElementsByTagName('html')[0].style.fontSize = `${localStorage.getItem('fontSize')}px`
 }
-// document.getElementsByTagName('html')[0].style.fontSize 
