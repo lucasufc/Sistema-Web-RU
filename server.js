@@ -2,6 +2,8 @@ const express = require('express');
 
 const path = require('path');
 
+const bodyParser = require('body-parser');
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -9,6 +11,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/scripts'));
 app.use(express.static(__dirname + '/assets'));
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.set('views', path.join(__dirname, '/'));
 
@@ -20,7 +25,9 @@ function selectUser(profile) {
         registrationNumber: "404201",
         favoriteDish: "Frango frito",
         time: "13:00",
-        enableNotifications: "Sim"
+        enableNotifications: "Sim",
+        password: "teste1234",
+        rule: "admin"
     }
     var user2 = {
         name: "Lucas Martins",
@@ -29,7 +36,9 @@ function selectUser(profile) {
         registrationNumber: "404206",
         favoriteDish: "Fígado",
         time: "11:00",
-        enableNotifications: "Não"
+        enableNotifications: "Não",
+        password: "teste1235",
+        rule: "user"
     }
     var user3 = {
         name: "Victor Santos",
@@ -38,7 +47,9 @@ function selectUser(profile) {
         registrationNumber: "404205",
         favoriteDish: "Estrogonofe de carne",
         time: "12:30",
-        enableNotifications: "Sim"
+        enableNotifications: "Sim",
+        password: "teste1236",
+        rule: "admin"
     }
     var user4 = {
         name: "Anderson Leandro",
@@ -47,7 +58,9 @@ function selectUser(profile) {
         registrationNumber: "404203",
         favoriteDish: "Feijoada",
         time: "12:00",
-        enableNotifications: "Não"
+        enableNotifications: "Não",
+        password: "teste1237",
+        rule: "user"
     }
 
     if(profile == user2['registrationNumber']) {
@@ -58,6 +71,10 @@ function selectUser(profile) {
         user = user4;
     }
     return user;
+}
+
+function checkPassword(password, incomePassword) {
+    return true;
 }
 
 app.get('/', (req, res) => {
@@ -90,6 +107,19 @@ app.get('/cadastro', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.render('views/login');
+});
+
+app.post('/login', (req, res) => {
+    user = selectUser(req.body.registrationNumber);
+    if (checkPassword(req.body.password)) {
+        if (user["rule"] == "user") {
+            res.redirect(`/usuario?profile=${req.body.registrationNumber}`);
+        } else if (user["rule"] == "admin") {
+            res.redirect("/admin");
+        }
+    } else {
+        return "error";
+    }
 });
 
 app.get('/sobre', (req, res) => {
