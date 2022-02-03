@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/create" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="name">Nome</label>
+            <div><input type="text" name="name" value="<%= model.name %>" /></div>
+            <label for="name">Foto</label>
+            <div><input type="file" name="imagesrc"></div>
+            <label for="email">Email</label>
+            <div><input type="text" name="email" value="<%= model.email %>" /></div>
+            <label for="registrationnumber">Matrícula</label>
+            <div><input type="number" name="registrationnumber" value="<%= model.registrationnumber %>" /></div>
+            <label for="favoritedish">Comida favorita</label>
+            <div><input type="text" name="favoritedish" value="<%= model.favoritedish %>" /></div>
+            <label for="time">Hora</label>
+            <div><input type="time" name="time" value="<%= model.time %>" /></div>
+            <label for="enablenotifications">Notificações</label>
+            <div><input type="text" name="enablenotifications" value="<%= model.enablenotifications %>" /></div>
+            <label for="password">Senha</label>
+            <div><input type="password" name="password" value="<%= model.password %>" /></div>
+            <input type="submit" value="Salvar">
+            <a href="/user">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

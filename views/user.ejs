@@ -16,7 +16,7 @@
           <th>Email</th>
           <th>Matrícula</th>
           <th>
-              <button>Criar</button>
+              <a href="/create">Criar</a>
           </th>
         </tr>
       </thead>
@@ -27,8 +27,8 @@
             <td><%= user.email %></td>
             <td><%= user.registrationnumber %></td>
             <td>
-              <a href="edit/<%= user.id %>">Edit</a>
-              <button>Excluir</button>
+              <a href="edit/<%= user.id %>">Editar</a>
+              <a href="delete/<%= user.id %>">Excluir</a>
             </td>
           </tr>
         <% } %>

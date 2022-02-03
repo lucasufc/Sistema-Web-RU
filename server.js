@@ -5,6 +5,9 @@ const alg = 'aes-256-ctr'
 const pwd = 'abcdabcd'
 const path = require('path');
 
+const multer = require('multer');
+
+
 const bodyParser = require('body-parser');
 
 const cookieParser = require('cookie-parser');
@@ -46,6 +49,27 @@ const pool = new Pool({
     }
         console.log("Successful creation of the 'Public.users' table");
     });
+
+// Configuração de armazenamento
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'assets/img')
+    },
+    filename: function (req, file, cb) {
+        // Extração da extensão do arquivo original:
+        const extensaoArquivo = file.originalname.split('.')[1];
+
+        // Cria um código randômico que será o nome do arquivo
+        const novoNomeArquivo = require('crypto')
+            .randomBytes(32)
+            .toString('hex');
+
+        // Indica o novo nome do arquivo:
+        cb(null, `${novoNomeArquivo}.${extensaoArquivo}`)
+    }
+});
+
+const upload = multer({ storage });
 
 
 // Server configuration
@@ -206,8 +230,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 // POST /edit/ (CRUD edit)
 app.post("/edit/:id", (req, res) =>{
     const id = req.params.id;
-    const user = [id, req.body.name, req.body.email];
-    const sql = "UPDATE users SET name = $2, email = $3 WHERE (id = $1)";
+    //const user = [id, req.body.name, req.body.email];
+    //const sql = "UPDATE users SET name = $2, email = $3 WHERE (id = $1)";
     const query = {
         text: 'UPDATE users SET name = $2, email = $3 WHERE (id = $1)',
         values: [id, `${req.body.name}`, `${req.body.email}`],
@@ -225,6 +249,43 @@ app.post("/edit/:id", (req, res) =>{
       res.redirect("/user");
     });*/
 });
+// POST /delete/5
+app.post("/delete/:id", (req, res) =>{
+    const id = req.params.id;
+    //const user = [id, req.body.name, req.body.email];
+    //const sql = "UPDATE users SET name = $2, email = $3 WHERE (id = $1)";
+    const query = {
+        text: 'DELETE FROM users WHERE (id = $1)',
+        values: [`${req.params.id}`],
+    }
+    pool.query(query, (err)=>{
+        if (err){
+            console.log(err)
+        }
+        res.redirect("/user");
+    });
+    /*pool.query(sql, user, (err, result) => {
+      if (err){
+          console.log(err)
+      }
+      res.redirect("/user");
+    });*/
+});
+// POST /create
+app.post("/create", upload.single('imagesrc'), (req, res) => {
+    //const sql = "INSERT INTO users (name, email, registrationnumber) VALUES ($1, $2, $3)";
+    //const user = [req.body.name, req.body.email, req.body.matricula];
+    const query = {
+        text: 'INSERT INTO users (name, imagesrc, email, registrationnumber, favoritedish, time, enablenotifications, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+        values: [`${req.body.name}`, `assets/img/${req.file.filename}`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],
+    }
+    pool.query(query, (err) => {
+      if (err){
+          console.log(err);
+      }
+      res.redirect("/user");
+    });
+  });
 
 app.get('/sobre', (req, res) => {
     res.render('views/about/index');
@@ -262,6 +323,22 @@ app.get("/edit/:id", (req, res) => {
     });
   });
 
+// GET /create
+app.get("/create", (req, res) => {
+    res.render("views/create", { model: {} });
+});
+
+// GET /delete/5
+app.get("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM users WHERE id = $1";
+    pool.query(sql, [id], (err, result) => {
+      if (err){
+        console.log(err);
+      }
+      res.render("views/delete", { model: result.rows[0]});
+    });
+});
 
 app.listen(3000, () => console.log(`App listening on port!`));
 
