@@ -1,4 +1,5 @@
 const express = require('express');
+const { Pool } = require("pg");
 const crypto = require('crypto')
 const alg = 'aes-256-ctr'
 const pwd = 'abcdabcd'
@@ -9,6 +10,46 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const app = express();
+
+
+const pool = new Pool({
+    user: "postgres",
+    host: "localhost",
+    database: "webru",
+    password: "123",
+    port: 5432
+  });
+  console.log("Successful connection to the database");
+
+  const sql_create = `DROP TABLE IF EXISTS public.users;
+  CREATE SEQUENCE users_id
+      start 1 
+      increment 1;
+  
+  CREATE TABLE IF NOT EXISTS public.users
+  (
+      id integer NOT NULL DEFAULT nextval('users_id'),
+      name character varying(100) NOT NULL,
+      imageSrc character varying(100) NOT NULL,
+      email character varying(100) NOT NULL,
+      registrationNumber character varying(8) NOT NULL,
+      favoriteDish character varying(100) NOT NULL,
+      time character varying(10) NOT NULL,
+      enableNotifications character varying(4) NOT NULL,
+      password character varying(100) NOT NULL,
+      rule character varying(5) COLLATE pg_catalog."default",
+      CONSTRAINT users_pkey PRIMARY KEY (id)
+  );`
+  pool.query(sql_create, [], (err, result) => {
+    if (err) {
+        return console.error(err.message);
+    }
+        console.log("Successful creation of the 'Public.users' table");
+    });
+
+
+// Server configuration
+app.use(express.urlencoded({ extended: false })); // <--- middleware configuration
 
 app.set('view engine', 'ejs');
 
@@ -148,6 +189,43 @@ app.post('/login', (req, res) => {
     }
 });
 
+
+//Sample code within your app
+//var express = require('express')
+//var bodyParser = require('body-parser')
+
+//var app = express()
+
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+
+// POST /edit/ (CRUD edit)
+app.post("/edit/:id", (req, res) =>{
+    const id = req.params.id;
+    const user = [id, req.body.name, req.body.email];
+    const sql = "UPDATE users SET name = $2, email = $3 WHERE (id = $1)";
+    const query = {
+        text: 'UPDATE users SET name = $2, email = $3 WHERE (id = $1)',
+        values: [id, `${req.body.name}`, `${req.body.email}`],
+    }
+    pool.query(query, (err)=>{
+        if (err){
+            console.log(err)
+        }
+        res.redirect("/user");
+    });
+    /*pool.query(sql, user, (err, result) => {
+      if (err){
+          console.log(err)
+      }
+      res.redirect("/user");
+    });*/
+});
+
 app.get('/sobre', (req, res) => {
     res.render('views/about/index');
 });
@@ -163,6 +241,27 @@ app.get('/sobre/ru', (req, res) => {
 app.get('/sobre/valor', (req, res) => {
     res.render('views/about/data/value');
 });
+
+app.get("/user", (req, res) => {
+    const sql = "SELECT * FROM users"
+    pool.query(sql, [], (err, result) => {
+      if (err) {
+        return console.error(err.message);
+      }
+      res.render("views/user", { model: result.rows });
+    });
+});
+
+// GET /edit/5
+app.get("/edit/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM users WHERE id = $1";
+    pool.query(sql, [id], (err, result) => {
+      // if (err) ...
+      res.render("views/edit", { model: result.rows[0] });
+    });
+  });
+
 
 app.listen(3000, () => console.log(`App listening on port!`));
 

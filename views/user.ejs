@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Lista de usuários (<%= model.length %>)</h1>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Matrícula</th>
+          <th>
+              <button>Criar</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const user of model) { %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.registrationnumber %></td>
+            <td>
+              <a href="edit/<%= user.id %>">Edit</a>
+              <button>Excluir</button>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+    
+</body>
+</html>
