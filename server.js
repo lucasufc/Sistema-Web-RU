@@ -31,7 +31,8 @@ const pool = new Pool({
   });
   console.log("Successful connection to the database");
 
-  const sql_create = `DROP TABLE IF EXISTS public.users;
+  const sql_create = `
+  DROP TABLE IF EXISTS public.users;
   CREATE SEQUENCE users_id
       start 1 
       increment 1;
