@@ -214,12 +214,6 @@ app.post('/login', (req, res) => {
 });
 
 
-//Sample code within your app
-//var express = require('express')
-//var bodyParser = require('body-parser')
-
-//var app = express()
-
 // create application/json parser
 var jsonParser = bodyParser.json()
 
@@ -241,14 +235,9 @@ app.post("/edit/:id", (req, res) =>{
             console.log(err)
         }
         res.redirect("/user");
-    });
-    /*pool.query(sql, user, (err, result) => {
-      if (err){
-          console.log(err)
-      }
-      res.redirect("/user");
-    });*/
+    });    
 });
+
 // POST /delete/5
 app.post("/delete/:id", (req, res) =>{
     const id = req.params.id;
@@ -264,13 +253,8 @@ app.post("/delete/:id", (req, res) =>{
         }
         res.redirect("/user");
     });
-    /*pool.query(sql, user, (err, result) => {
-      if (err){
-          console.log(err)
-      }
-      res.redirect("/user");
-    });*/
 });
+
 // POST /create
 app.post("/create", upload.single('imagesrc'), (req, res) => {
     //const sql = "INSERT INTO users (name, email, registrationnumber) VALUES ($1, $2, $3)";
