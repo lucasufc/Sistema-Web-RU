@@ -4,30 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro - Sistema Web RU</title>
+	<link rel='stylesheet' type='text/css' media='screen' href='/index.css'>
 </head>
 <body>
-    <form action="/create" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="name">Nome</label>
-            <div><input type="text" name="name" value="<%= model.name %>" /></div>
-            <label for="name">Foto</label>
-            <div><input type="file" name="imagesrc"></div>
-            <label for="email">Email</label>
-            <div><input type="text" name="email" value="<%= model.email %>" /></div>
-            <label for="registrationnumber">Matrícula</label>
-            <div><input type="number" name="registrationnumber" value="<%= model.registrationnumber %>" /></div>
-            <label for="favoritedish">Comida favorita</label>
-            <div><input type="text" name="favoritedish" value="<%= model.favoritedish %>" /></div>
-            <label for="time">Hora</label>
-            <div><input type="time" name="time" value="<%= model.time %>" /></div>
-            <label for="enablenotifications">Notificações</label>
-            <div><input type="text" name="enablenotifications" value="<%= model.enablenotifications %>" /></div>
-            <label for="password">Senha</label>
-            <div><input type="password" name="password" value="<%= model.password %>" /></div>
-            <input type="submit" value="Salvar">
-            <a href="/user">Cancelar</a>
+    <div class="wrapper-form">
+        <a href="/" class="logo">Sistema Web RU</a>
+        <div class="container-form">
+            <h2>Cadastro</h2>
+            <form action="/create" method="post" enctype="multipart/form-data">
+                <label for="name">Nome</label>
+                <div><input type="text" name="name" value="<%= model.name %>" /></div>
+                <label for="name">Foto</label>
+                <div><input type="file" name="imagesrc"></div>
+                <label for="email">Email</label>
+                <div><input type="text" name="email" value="<%= model.email %>" /></div>
+                <label for="registrationnumber">Matrícula</label>
+                <div><input type="number" name="registrationnumber" value="<%= model.registrationnumber %>" /></div>
+                <label for="favoritedish">Comida favorita</label>
+                <div><input type="text" name="favoritedish" value="<%= model.favoritedish %>" /></div>
+                <label for="time">Hora</label>
+                <div><input type="time" name="time" value="<%= model.time %>" /></div>
+                <label for="enablenotifications">Notificações</label>
+                <div><input type="text" name="enablenotifications" value="<%= model.enablenotifications %>" /></div>
+                <label for="password">Senha</label>
+                <div><input type="password" name="password" value="<%= model.password %>" /></div>
+                <input type="submit" value="Salvar">
+                <a href="/">Cancelar</a>
+            </form>
         </div>
-    </form>
+        <div class="acessibilidade">
+            <div class="botao-acessibilidade">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div>
+            <div class="comandos-acessibilidade">
+                <div id="toggler">
+                    <i class="indicator"></i>
+                </div>
+                <span>
+                    <button onclick="aumentarFonte()">A+</button>
+                    <button onclick="diminuirFonte()">A-</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="./darkMode.js"></script>
+    <script src="./fontSize.js"></script>
+    <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>
 </html>

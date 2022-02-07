@@ -7,23 +7,12 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div class="page-title">
-        <h1>Perfil do usuário</h1>
-        <hr>
-    </div>
     <div class="container">
         <div class="profile">
             <div>
-                <img id="profile-image" src="<%- user['imageSrc'] %>" alt="">
-                <span id="username"><%- user['name'] %></span>
-                <div class="evaluation">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                </div>
-                <a style="margin-top: 10px; color: #796BD7 !important;" href="/editarUsuario?profile=<%- user['registrationNumber'] %>">Editar</a>
+                <img src="<%= model.imagesrc %>" alt="">
+                <span id="username"><%= model.name %></span>
+                <a style="margin-top: 10px; color: #796BD7 !important;" href="/">Editar</a>
                 <!-- <a style="margin-top: 10px; color: #000 !important;" href="/logout">Sair</a> -->
 
                 <div class="flex-row buttons">
@@ -37,18 +26,18 @@
             <div class="info-section">
                 <span class="section-title">Informações de usuário</span>
                 <div class="info-column">
-                    <div><span class="field">Nome: </span><%- user['name'] %></div>
-                    <div><span class="field">Email: </span><%- user['email'] %></div>
-                    <div><span class="field">Matrícula: </span><%- user['registrationNumber'] %></div>
+                    <div><span class="field">Nome: </span><%= model.imagesrc %></div>
+                    <div><span class="field">Email: </span><%= model.email %></div>
+                    <div><span class="field">Matrícula: </span><%= model.registrationnumber %></div>
                 </div>
             </div>
             <hr>
             <div class="info-section">
                 <span class="section-title">Preferências do usuário</span>
                 <div class="info-column">
-                    <div><span class="field">Prato favorito: </span><%- user['favoriteDish'] %></div>
-                    <div><span class="field">Horários: </span><%- user['time'] %></div>
-                    <div><span class="field">Habilitar notificações: </span><%- user['enableNotifications'] %></div>
+                    <div><span class="field">Prato favorito: </span><%= model.favoritedish %></div>
+                    <div><span class="field">Horários: </span><%= model.time %></div>
+                    <div><span class="field">Habilitar notificações: </span><%= model.enablenotifications %></div>
                 </div>
             </div>
             <hr>

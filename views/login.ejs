@@ -17,11 +17,12 @@
             <h2>Login</h2>
             <form action="/login" method="POST" class="cl-form">
                 <label for="matricula">Matrícula</label>
-                <input id="registrationNumber" type="number" name="registrationNumber" placeholder="xxxxxx">
+                <input id="registrationnumber" type="number" name="registrationnumber" placeholder="xxxxxx" required>
                 <label for="senha">Senha</label>
-                <input id="password" type="password" name="password">
+                <input id="password" type="password" name="password" required>
                 <span class="form-buttons">
-                    <button id="form-confirma">Confirmar</button>
+                    <input type="submit" value="Entrar">
+                    <!-- <button id="form-confirma">Confirmar</button> -->
                     <a href="/">Voltar</a>
                 </span>
                 <span>

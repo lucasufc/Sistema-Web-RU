@@ -1,16 +1,23 @@
 const express = require('express');
-const { Pool } = require("pg");
+const { Pool, Connection } = require("pg");
 const crypto = require('crypto')
 const alg = 'aes-256-ctr'
 const pwd = 'abcdabcd'
 const path = require('path');
+const session = require('express-session');
 
 const multer = require('multer');
+
+//para gerar e verificar tokens
+const jwt = require('jsonwebtoken');
+const SECRET = "sistema_WEB_RU"
 
 
 const bodyParser = require('body-parser');
 
 const cookieParser = require('cookie-parser');
+const { Console } = require('console');
+const { doesNotMatch } = require('assert');
 
 const app = express();
 
@@ -71,6 +78,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
 
 // Server configuration
 app.use(express.urlencoded({ extended: false })); // <--- middleware configuration
@@ -80,6 +92,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/scripts'));
 app.use(express.static(__dirname + '/assets'));
+//app.use(express.static('/assets'));
+//app.use(express.static("/assets/img"));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -153,14 +167,64 @@ app.get('/', (req, res) => {
     res.render('views/index');
 });
 
-app.get('/usuario', (req, res) => {
+//função de MIDDLEWARE
+function verifyJWT(req,res, next){
+    const token = req.headers['x-access-token'];
+    const index = blacklist.findIndex(item => item === token)
+    if(index !== -1) return res.status(401).end();
+
+    jwt.verify(token, SECRET, (err, decoded) => {
+        if (err) return res.status(401).end();
+
+        req.userId = decoded.userId;
+        next();
+    })
+}
+
+app.get('/logout', (req, res) => {
+    res.cookie('token', null);
+    res.redirect('/login');
+});
+
+const blacklist = [];
+app.post('/logout', (req,res) => {
+    blacklist.push(req.headers['x-access-token']);
+    res.end();
+});
+
+/*app.get('/usuario', (req, res) => {
     const user = selectUser(req.cookies.token);
     if (user["rule"] == "user") {
         res.render('views/userProfile', { user: user });
     } else {
         res.send("Sem autorização");
     }
+});*/
+
+app.get("/usuario/:id", (request, response) => {
+    if (request.session.loggedin) {
+		// Output username
+		//response.send('Welcome back, ' + request.session.registrationnumber + '!');
+        //const id = req.session.registrationnumber
+        const query = {
+            text: 'SELECT * FROM users WHERE registrationnumber = $1',
+            values: [`${request.session.registrationnumber}`],
+        }  
+        pool.query(query, (err, result) => {
+            if (err){
+                console.log(err);
+            }
+            //console.log(result.rows[0])
+            response.render("views/userProfile", { model: result.rows[0]});
+        });
+	} else {
+		// Not logged in
+		response.send('Please login to view this page!');
+	}
+	//response.end();
 });
+
+
 
 app.get('/admin', (req, res) => {
     const user = selectUser(req.cookies.token);
@@ -180,11 +244,6 @@ app.get('/editarUsuario', (req, res) => {
     const user = selectUser(req.query.profile);
     res.render('views/editUserProfile.ejs', { user: user });
 });
-
-app.get('/cadastro', (req, res) => {
-    res.render('views/registration');
-});
-
 app.get('/login', (req, res) => {
     var user = selectUser(req.cookies.token);
     if (user == null) {
@@ -198,7 +257,7 @@ app.get('/login', (req, res) => {
     }
 });
 
-app.post('/login', (req, res) => {
+/*app.post('/login', (req, res) => {
     var user = selectUser(req.body.registrationNumber);
     if(user == null) res.redirect("/login");
     if (checkPassword(req.body.password, descriptografar(user["password"]))) {
@@ -211,7 +270,50 @@ app.post('/login', (req, res) => {
     } else {
         res.redirect("/login");
     }
+});*/
+app.post('/login', (request, response) =>{
+    let registrationnumber = request.body.registrationnumber;
+    let password = request.body.password;
+    //console.log(registrationnumber);
+    //console.log(password);
+    
+    //const id = req.params.id;
+    //const user = [id, req.body.name, req.body.email];
+    //const sql = "UPDATE users SET name = $2, email = $3 WHERE (id = $1)";
+    const query = {
+        text: 'SELECT * FROM users WHERE registrationnumber = $1 AND password = $2',
+        values: [`${request.body.registrationnumber}`, `${request.body.password}`],
+        //result: res.rows[0][data],
+ 
+    }    
+    if(registrationnumber && password){
+        pool.query(query, (err, result)=>{
+            if (err){
+                console.log(err)
+            }
+        
+            //done();
+            //console.log(result.rows[0].id);
+            if (result.rows[0].id) {
+                // Authenticate the user
+                request.session.loggedin = true;
+                request.session.registrationnumber = registrationnumber;
+                // Redirect to home page
+                response.redirect('/usuario/:id');
+            } else {
+                response.send('Incorrect Registration Number and/or Password!');
+            }			
+            response.end();
+        });
+    }
+    else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
 });
+
+
+
 
 
 //Sample code within your app
@@ -277,7 +379,7 @@ app.post("/create", upload.single('imagesrc'), (req, res) => {
     //const user = [req.body.name, req.body.email, req.body.matricula];
     const query = {
         text: 'INSERT INTO users (name, imagesrc, email, registrationnumber, favoritedish, time, enablenotifications, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
-        values: [`${req.body.name}`, `assets/img/${req.file.filename}`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],
+        values: [`${req.body.name}`, `/img/${req.file.filename}`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],
     }
     pool.query(query, (err) => {
       if (err){
