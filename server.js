@@ -226,13 +226,36 @@ app.get("/usuario/:id", (request, response) => {
 
 
 
-app.get('/admin', (req, res) => {
+/*app.get('/admin', (req, res) => {
     const user = selectUser(req.cookies.token);
     if (user["rule"] == "admin") {
         res.render('views/adminProfile', { admin: user });
     } else {
         res.send("Sem autorização");
     }
+});*/
+
+app.get("/admin/:id", (request, response) => {
+    if (request.session.loggedin) {
+		// Output username
+		//response.send('Welcome back, ' + request.session.registrationnumber + '!');
+        //const id = req.session.registrationnumber
+        const query = {
+            text: 'SELECT * FROM users WHERE registrationnumber = $1',
+            values: [`${request.session.registrationnumber}`],
+        }  
+        pool.query(query, (err, result) => {
+            if (err){
+                console.log(err);
+            }
+            //console.log(result.rows[0])
+            response.render("views/adminProfile", { model: result.rows[0]});
+        });
+	} else {
+		// Not logged in
+		response.send('Please login to view this page!');
+	}
+	//response.end();
 });
 
 app.get('/logout', (req, res) => {
@@ -244,7 +267,7 @@ app.get('/editarUsuario', (req, res) => {
     const user = selectUser(req.query.profile);
     res.render('views/editUserProfile.ejs', { user: user });
 });
-app.get('/login', (req, res) => {
+/*app.get('/login', (req, res) => {
     var user = selectUser(req.cookies.token);
     if (user == null) {
         res.render('views/login');
@@ -255,6 +278,10 @@ app.get('/login', (req, res) => {
             res.redirect("/admin");
         }
     }
+});*/
+
+app.get('/login', (req, res)=>{
+    res.render('views/login');
 });
 
 /*app.post('/login', (req, res) => {
@@ -294,12 +321,18 @@ app.post('/login', (request, response) =>{
         
             //done();
             //console.log(result.rows[0].id);
+            //console.log(result.rows[0].rule)
             if (result.rows[0].id) {
                 // Authenticate the user
                 request.session.loggedin = true;
                 request.session.registrationnumber = registrationnumber;
-                // Redirect to home page
-                response.redirect('/usuario/:id');
+                if(result.rows[0].rule == 'admin'){
+                    response.redirect('/admin/:id');
+                }
+                else{
+                    // Redirect to home page
+                    response.redirect('/usuario/:id');
+                }
             } else {
                 response.send('Incorrect Registration Number and/or Password!');
             }			
@@ -343,6 +376,27 @@ app.post("/edit/:id", (req, res) =>{
             console.log(err)
         }
         res.redirect("/user");
+    });
+    /*pool.query(sql, user, (err, result) => {
+      if (err){
+          console.log(err)
+      }
+      res.redirect("/user");
+    });*/
+});
+app.post("/usuario/edit/:id", (req, res) =>{
+    const id = req.params.id;
+    //const user = [id, req.body.name, req.body.email];
+    //const sql = "UPDATE users SET name = $2, email = $3 WHERE (id = $1)";
+    const query = {
+        text: 'UPDATE users SET name = $2, email = $3 WHERE (id = $1)',
+        values: [id, `${req.body.name}`, `${req.body.email}`],
+    }
+    pool.query(query, (err)=>{
+        if (err){
+            console.log(err)
+        }
+        res.redirect("/usuario");
     });
     /*pool.query(sql, user, (err, result) => {
       if (err){
@@ -416,14 +470,27 @@ app.get("/user", (req, res) => {
 });
 
 // GET /edit/5
+app.get("/usuario/edit/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM users WHERE id = $1";
+    pool.query(sql, [id], (err, result) => {
+      if (err){
+          console.log(err);
+      }
+      res.render("views/edit", { model: result.rows[0] });
+    });
+});
+
 app.get("/edit/:id", (req, res) => {
     const id = req.params.id;
     const sql = "SELECT * FROM users WHERE id = $1";
     pool.query(sql, [id], (err, result) => {
-      // if (err) ...
+      if (err){
+          console.log(err);
+      }
       res.render("views/edit", { model: result.rows[0] });
     });
-  });
+});
 
 // GET /create
 app.get("/create", (req, res) => {

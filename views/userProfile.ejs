@@ -12,7 +12,8 @@
             <div>
                 <img src="<%= model.imagesrc %>" alt="">
                 <span id="username"><%= model.name %></span>
-                <a style="margin-top: 10px; color: #796BD7 !important;" href="/">Editar</a>
+                <!-- <a style="margin-top: 10px; color: #796BD7 !important;" href="edit/<%= model.id %>">Editar</a> -->
+                <a href="edit/<%= model.id %>">Editar</a>
                 <!-- <a style="margin-top: 10px; color: #000 !important;" href="/logout">Sair</a> -->
 
                 <div class="flex-row buttons">
@@ -26,7 +27,7 @@
             <div class="info-section">
                 <span class="section-title">Informações de usuário</span>
                 <div class="info-column">
-                    <div><span class="field">Nome: </span><%= model.imagesrc %></div>
+                    <div><span class="field">Nome: </span><%= model.name %></div>
                     <div><span class="field">Email: </span><%= model.email %></div>
                     <div><span class="field">Matrícula: </span><%= model.registrationnumber %></div>
                 </div>

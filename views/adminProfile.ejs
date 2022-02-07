@@ -3,26 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <title>Admin</title>
-    <link rel="stylesheet" href="/index.css">
+    <title>Página de Usuário</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div class="page-title">
-        <h1>Perfil do Administrador</h1>
-        <hr>
-    </div>
     <div class="container">
         <div class="profile">
             <div>
-                <img id="profile-image" src="<%- admin['imageSrc'] %>" alt="">
-                <span id="admin"><%- admin['name'] %></span>
-                <div class="evaluation">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                    <img class="star-image" src="/img/star.png" alt="">
-                </div>
+                <img src="<%= model.imagesrc %>" alt="">
+                <span id="username"><%= model.name %></span>
+                <!-- <a style="margin-top: 10px; color: #796BD7 !important;" href="edit/<%= model.id %>">Editar</a> -->
+                <a href="edit/<%= model.id %>">Editar</a>
+                <!-- <a style="margin-top: 10px; color: #000 !important;" href="/logout">Sair</a> -->
 
                 <div class="flex-row buttons">
                     <a href="/logout" class="btn btn-login" style="text-align: center;">
@@ -33,19 +25,48 @@
         </div>
         <div class="profile-info">
             <div class="info-section">
-                <span class="section-title">Informações de Administrador</span>
+                <span class="section-title">Informações de usuário</span>
                 <div class="info-column">
-                    <div><span class="field">Nome: </span><%- admin['name'] %></div>
-                    <div><span class="field">Email: </span><%- admin['email'] %></div>
-                    <div><span class="field">Matrícula: </span><%- admin['registrationNumber'] %></div>
+                    <div><span class="field">Nome: </span><%= model.name %></div>
+                    <div><span class="field">Email: </span><%= model.email %></div>
+                    <div><span class="field">Matrícula: </span><%= model.registrationnumber %></div>
                 </div>
             </div>
             <hr>
             <div class="info-section">
-                <span class="section-title">Cardápio <a href="">(Editar)</a></span>
+                <span class="section-title">Preferências do usuário</span>
+                <div class="info-column">
+                    <div><span class="field">Prato favorito: </span><%= model.favoritedish %></div>
+                    <div><span class="field">Horários: </span><%= model.time %></div>
+                    <div><span class="field">Habilitar notificações: </span><%= model.enablenotifications %></div>
+                </div>
+            </div>
+            <hr>
+            <div class="info-section">
+                <span class="section-title">Integrações do usuário</span>
+                <div class="info-column">
+                    <div>
+                        <div class="onoff">
+                            <span class="field">Google Calendar: </span>
+                            <input type="checkbox" class="toggle" id="onoff1">
+                            <label class="switch" for="onoff1"></label>
+                        </div>
+                    </div>
+                    <div class="onoff">
+                        <span class="field">Sigaa: </span>
+                        <input type="checkbox" class="toggle" id="onoff2">
+                        <label class="switch" for="onoff2"></label>
+                    </div>
+                    <div class="onoff">
+                        <span class="field">Facebook: </span>
+                        <input type="checkbox" class="toggle" id="onoff3">
+                        <label class="switch" for="onoff3"></label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <div class="acessibilidade">
         <div class="botao-acessibilidade">
             <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -59,9 +80,8 @@
                 <button onclick="diminuirFonte()">A-</button>
             </span>
         </div>
-</div>
+    </div>
     <script src="./app.js" ></script>
     <script src="./darkMode.js"></script>
-    <script src="./fontSize.js"></script>
     <script src="https://kit.fontawesome.com/0d52e405d5.js" crossorigin="anonymous"></script>
 </body>
