@@ -1,8 +1,7 @@
 const express = require('express');
-//const res = require('express/lib/response');
-const { Pool, Connection } = require("pg");
 const router = express.Router();
-
+// Database
+const { Pool, Connection } = require("pg");
 const pool = new Pool({
     user: "postgres",
     host: "localhost",
@@ -190,6 +189,7 @@ router.get("/admin/:id", (request, response) => {
 
 });
 
+
 // USER (EDIT)
 router.get('/editarUsuario', (req, res) => {
     const user = selectUser(req.query.profile);
@@ -207,10 +207,10 @@ router.post("/edit/:id", (req, res) =>{
         if (err){
             console.log(err)
         }
-        res.redirect("/user");
+        res.redirect(`/usuario/${id}`);
     });
 });
-router.post("/usuario/edit/:id", (req, res) =>{
+router.post("/admin/edit/:id", (req, res) =>{
     const id = req.params.id;
     const query = {
         text: 'UPDATE users SET name = $2, email = $3 WHERE (id = $1)',
@@ -220,7 +220,7 @@ router.post("/usuario/edit/:id", (req, res) =>{
         if (err){
             console.log(err)
         }
-        res.redirect("/usuario");
+        res.redirect("/admin");
     });
 });
 router.post("/delete/:id", (req, res) =>{
@@ -258,6 +258,16 @@ router.get("/user", (req, res) => {
     });
 });
 router.get("/usuario/edit/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM users WHERE id = $1";
+    pool.query(sql, [id], (err, result) => {
+      if (err){
+          console.log(err);
+      }
+      res.render("views/edit", { model: result.rows[0] });
+    });
+});
+router.get("/admin/edit/:id", (req, res) => {
     const id = req.params.id;
     const sql = "SELECT * FROM users WHERE id = $1";
     pool.query(sql, [id], (err, result) => {

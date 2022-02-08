@@ -38,4 +38,3 @@ app.get('/', function(req, res) {
 })
 //app.get('/sobre', index);
 app.listen(port, () => console.log("Servidor funcional em: http://localhost:" + port));
-
