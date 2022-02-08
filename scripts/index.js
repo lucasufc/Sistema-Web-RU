@@ -306,12 +306,12 @@ router.post("/delete/:id", (req, res) =>{
     request.delete(requestOptions, function(error, response, body) {
         console.log('req2')
         if (!error && response.statusCode === 200) {
-            res.redirect(303, "/user");
+            res.redirect(303, "/login");
         }
         
         else {
             console.log(response.statusCode)
-            res.redirect(400, "/user");
+            res.redirect(400, "/login");
         }
     });
 });

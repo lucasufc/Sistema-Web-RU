@@ -80,7 +80,7 @@ router.post("/create", upload.single('imagesrc'), (req, res) => {
     console.log(req.body.name);
     const query = {
         text: 'INSERT INTO users (name, imagesrc, email, registrationnumber, favoritedish, time, enablenotifications, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
-        values: [`${req.body.name}`, `${req.body.imagesrc}`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],
+        values: [`${req.body.name}`, `assets\img\perfil-glauton-santos.jpg`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],
     }
     pool.query(query, (err) => {
       if (err){
