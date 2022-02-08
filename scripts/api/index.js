@@ -1,11 +1,6 @@
 const express = require('express');
-const path = require('path');
-const session = require('express-session');
-const ind = require('./scripts/index');
-const port = 3000;
-const request = require('request');
-const bodyParser = require('body-parser');
-const app = express();
+const router = express.Router();
+require('./')
 // Database
 const { Pool, Connection } = require("pg");
 const pool = new Pool({
@@ -67,35 +62,46 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
+router.delete("/delete/:id", (req, res) =>{
+   // const id = req.params.id;
+    const query = {
+        text: 'DELETE FROM users WHERE (id = $1)',
+        values: [`${req.params.id}`],
+    }
+    pool.query(query, (err)=>{
+        if (err){
+            console.log(err)
+        }
+        res.status(200).end('sucesso!');
+    });
+});
 
-// Server configuration
-app.use(express.urlencoded({ extended: false })); // <--- middleware configuration
+router.post("/create", upload.single('imagesrc'), (req, res) => {
+    console.log(req.body.name);
+    const query = {
+        text: 'INSERT INTO users (name, imagesrc, email, registrationnumber, favoritedish, time, enablenotifications, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+        values: [`${req.body.name}`, `${req.body.imagesrc}`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],
+    }
+    pool.query(query, (err) => {
+      if (err){
+          console.log(err);
+      }
+      res.status(200).end('sucesso!');
+    });
 
-
-app.set('view engine', 'ejs');
-
-app.use(express.static(__dirname + '/css'));
-app.use(express.static(__dirname + '/scripts'));
-app.use(express.static(__dirname + '/assets'));
-
-
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-
-
-app.set('views', path.join(__dirname, '/'));
-
-//ROTAS
-
-app.use('/', ind);
-
-app.get('/', function(req, res) {
-    res.redirect("/")
-})
-//app.get('/sobre', index);
-app.listen(port, () => console.log("Servidor funcional em: http://localhost:" + port));
+  });
+  router.put("/edit/:id", (req, res) =>{
+    const id = req.params.id;
+    //console.log('asdklf')
+    const query = {
+        text: 'UPDATE users SET name = $2, email = $3 WHERE (id = $1)',
+        values: [id, `${req.body.name}`, `${req.body.email}`],
+    }
+    pool.query(query, (err)=>{
+        if (err){
+            console.log(err)
+        }
+        res.status(200).end('sucesso!');
+    });
+});
+  module.exports = router;
