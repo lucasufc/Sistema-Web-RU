@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <title>Página de Usuário</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div class="container">
@@ -14,6 +14,7 @@
                 <span id="username"><%= model.name %></span>
                 <!-- <a style="margin-top: 10px; color: #796BD7 !important;" href="edit/<%= model.id %>">Editar</a> -->
                 <a href="edit/<%= model.id %>">Editar</a>
+                <a href="delete/<%= model.id %>">Excluir</a>
                 <!-- <a style="margin-top: 10px; color: #000 !important;" href="/logout">Sair</a> -->
 
                 <div class="flex-row buttons">

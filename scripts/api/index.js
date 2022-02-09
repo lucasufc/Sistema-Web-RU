@@ -76,8 +76,8 @@ router.delete("/delete/:id", (req, res) =>{
     });
 });
 
-router.post("/create", upload.single('imagesrc'), (req, res) => {
-    console.log(req.body.name);
+router.post("/create", (req, res) => {
+    console.log(req.body.imagesrc);
     const query = {
         text: 'INSERT INTO users (name, imagesrc, email, registrationnumber, favoritedish, time, enablenotifications, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
         values: [`${req.body.name}`, `assets\img\perfil-glauton-santos.jpg`, `${req.body.email}`, `${req.body.registrationnumber}`, `${req.body.favoritedish}`, `${req.body.time}`, `${req.body.enablenotifications}`, `${req.body.password}`],

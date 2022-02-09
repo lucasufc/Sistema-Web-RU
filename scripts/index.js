@@ -94,6 +94,7 @@ router.get('/login', (req, res)=>{
 router.post('/login', (request, response) =>{
     let registrationnumber = request.body.registrationnumber;
     let password = request.body.password;
+    validator = -1;
 
     const query = {
         text: 'SELECT * FROM users WHERE registrationnumber = $1 AND password = $2',
@@ -105,7 +106,7 @@ router.post('/login', (request, response) =>{
         pool.query(query, (err, result)=>{
             if (err){
                 console.log(err)
-            }
+            } 
             if (result.rows[0].id) {
                 // Authenticate the user
                 request.session.loggedin = true;
@@ -280,15 +281,30 @@ router.post("/edit/:id", (req, res) =>{
 });
 router.put("/admin/edit/:id", (req, res) =>{
     const id = req.params.id;
-    const query = {
-        text: 'UPDATE users SET name = $2, email = $3 WHERE (id = $1)',
-        values: [id, `${req.body.name}`, `${req.body.email}`],
+
+    var sendBody = {
+        id: req.params.id,
+        name: req.body.name,
+        email: req.body.email
+
     }
-    pool.query(query, (err)=>{
-        if (err){
-            console.log(err)
+
+    var requestOptions = {
+        url: `http://localhost:5000/edit/${req.params.id}`,
+        headers: {'content-type' : 'application/x-www-form-urlencoded'},
+        form: sendBody
+    }
+    //console.log('teste')
+    request.put(requestOptions, function(error, response, body) {
+        //console.log('req2')
+        if (!error && response.statusCode === 200) {
+            res.redirect(303, `/admin/${req.params.id}`);
         }
-        res.redirect("/admin");
+        
+        else {
+            console.log(response.statusCode)
+            res.redirect(400, `/admin/${req.params.id}`);
+        }
     });
 });
 router.post("/delete/:id", (req, res) =>{
@@ -302,9 +318,9 @@ router.post("/delete/:id", (req, res) =>{
         headers: {'content-type' : 'application/x-www-form-urlencoded'},
         form: sendBody
     }
-    console.log('teste')
+    //console.log('teste')
     request.delete(requestOptions, function(error, response, body) {
-        console.log('req2')
+        //console.log('req2')
         if (!error && response.statusCode === 200) {
             res.redirect(303, "/login");
         }
